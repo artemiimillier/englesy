@@ -402,7 +402,6 @@ async function getAudioDataUrl(text) {
   const cfg = loadConfig();
   const t = cfg.tts;
   if (!t.enabled) return null;
-  if (!t.apiKey) throw new Error("NO_API_KEY");
 
   const key = crypto
     .createHash("sha1")
@@ -412,8 +411,11 @@ async function getAudioDataUrl(text) {
 
   let buf;
   if (fs.existsSync(file)) {
+    // Bundled/cached audio — works with no API key (the normal case for end users).
     buf = fs.readFileSync(file);
   } else {
+    // Not cached → need the API to generate it.
+    if (!t.apiKey) throw new Error("NO_API_KEY");
     const base = t.proxyUrl ? `${t.proxyUrl}/elevenlabs` : "https://api.elevenlabs.io";
     const url = `${base}/v1/text-to-speech/${t.voiceId}`;
     const headers = { "xi-api-key": t.apiKey, "Content-Type": "application/json", Accept: "audio/mpeg" };
