@@ -1,0 +1,17 @@
+# dependencies (users run `npm install`)
+node_modules/
+
+# personal secrets — never commit
+.env.local
+.env
+
+# personal runtime state (not shared)
+data/progress.json
+data/.state.json
+
+# build output
+dist/
+
+# misc
+*.log
+.DS_Store

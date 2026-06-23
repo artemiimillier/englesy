@@ -1,0 +1,34 @@
+{
+  "schedule": {
+    "days": [1, 2, 3, 4, 5],
+    "startHour": 10,
+    "endHour": 17,
+    "everyMinutes": 60
+  },
+  "sentencesPerRun": 10,
+  "autoAdvanceMs": 0,
+  "popupOnStart": false,
+  "drill": {
+    "repeatTarget": 10,
+    "targetLevel": "B2",
+    "tenseRotation": ["present", "past", "future", "present", "modal", "conditional", "perfect", "present"]
+  },
+  "srs": {
+    "enabled": true,
+    "newPerSession": 10,
+    "intervalsDays": [1, 3, 7, 16, 35, 90]
+  },
+  "tts": {
+    "enabled": true,
+    "apiKey": "",
+    "proxyUrl": "",
+    "proxySecret": "",
+    "voiceId": "Gfpl8Yo74Is0W6cPUWWT",
+    "modelId": "eleven_multilingual_v2",
+    "stability": 0.5,
+    "similarityBoost": 0.8,
+    "speed": 0.85,
+    "repeatCount": 3,
+    "gapMs": 550
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "englesy",
+  "version": "0.1.0",
+  "description": "Hourly English pattern-drill popup with voice-driven word-by-word practice (personal use, macOS)",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "now": "ELECTRON_POPUP_ON_START=1 electron ."
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^31.0.0"
+  }
+}

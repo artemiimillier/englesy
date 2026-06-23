@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ENGLESY</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div id="levelbar">
+        <span id="level-cur" class="level-cur">A2</span>
+        <div class="level-track"><div id="level-fill" class="level-fill"></div></div>
+        <span id="level-next" class="level-next">B1</span>
+        <span id="level-info" class="level-info">—</span>
+      </div>
+
+      <header id="topbar">
+        <span id="pattern">—</span>
+        <span id="progress">0 / 0</span>
+        <span id="timer" class="timer">0:00</span>
+        <span id="stats" class="stats">🔥 0</span>
+        <span id="mic" class="mic">🔊</span>
+      </header>
+
+      <main id="stage">
+        <div id="sentence" class="sentence"></div>
+        <div id="translation" class="translation"></div>
+
+        <div id="hands">
+          <div id="handL" class="hand">L</div>
+          <div id="bigword" class="bigword">—</div>
+          <div id="handR" class="hand">R</div>
+        </div>
+
+        <div id="repeat" class="repeat hidden">
+          <div class="repeat-label">Повтори быстро <span id="repeat-target">10</span>×</div>
+          <div id="repeat-phrase" class="repeat-phrase"></div>
+          <div id="repeat-dots" class="repeat-dots"></div>
+        </div>
+      </main>
+
+      <div id="done" class="done-screen hidden"></div>
+
+      <footer id="controls">
+        <button id="btn-replay" class="btn">🔊 Ещё раз <span class="k">R</span></button>
+        <button id="btn-skip" class="btn btn-skip">⏭ Пропустить <span class="k">S</span></button>
+        <div class="hint"><b>← / Лев.Ctrl</b> · <b>→ / Прав.Ctrl</b> — лево/право · <b>наведи</b> на слово — перевод · <b>Esc</b></div>
+      </footer>
+    </div>
+
+    <div id="wordtip" class="wordtip hidden"></div>
+    <script src="renderer.js"></script>
+  </body>
+</html>
