@@ -13,14 +13,22 @@ export async function startCamera(videoEl) {
     throw new Error('Браузер не поддерживает доступ к камере (getUserMedia). Откройте через localhost в Chrome/Edge.');
   }
 
+  const videoConstraints = { facingMode: 'user', width: { ideal: 1280 }, height: { ideal: 720 } };
+
   let stream;
   try {
-    stream = await navigator.mediaDevices.getUserMedia({
-      video: { facingMode: 'user', width: { ideal: 1280 }, height: { ideal: 720 } },
-      audio: true,
-    });
+    // Happy path: one prompt for camera + mic.
+    stream = await navigator.mediaDevices.getUserMedia({ video: videoConstraints, audio: true });
   } catch (err) {
-    throw mapMediaError(err);
+    // The COMBINED request often fails only because the MICROPHONE is busy/denied (Wispr Flow,
+    // Loom, Zoom, Telegram… holding it) — which would otherwise also kill the camera. Retry with
+    // VIDEO ONLY so you still see yourself and gestures work; voice just won't until the mic frees.
+    try {
+      stream = await navigator.mediaDevices.getUserMedia({ video: videoConstraints });
+    } catch (err2) {
+      // Camera genuinely unavailable (denied / no device / truly busy).
+      throw mapMediaError(err2);
+    }
   }
 
   try {

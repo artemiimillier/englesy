@@ -284,9 +284,12 @@ async function setupCameraAndGestures() {
   } catch (e) {
     // No camera / no MediaPipe / permission denied → keyboard drill continues.
     gestures = null;
-    const msg = e && e.message ? e.message : String(e);
-    safe(() => ui.setCamStatus('Камера недоступна — играй на клавишах ←/→'));
-    console.warn('[ENGLESY] camera/gestures unavailable:', msg);
+    // Surface the SPECIFIC reason (camera.js maps NotAllowedError/NotReadableError/
+    // NotFoundError to a clear message) so the user knows exactly what to fix.
+    const name = (e && e.name) ? `[${e.name}] ` : '';
+    const msg = (e && e.message) ? e.message : String(e);
+    safe(() => ui.setCamStatus(`${name}${msg}`));
+    console.warn('[ENGLESY] camera/gestures unavailable:', e && e.name, msg);
   }
 }
 
