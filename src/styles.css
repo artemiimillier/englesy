@@ -28,6 +28,10 @@ html, body {
   padding: 9px 16px 8px; background: #0b0e13; border-bottom: 1px solid #21262d;
   font-size: 12px;
 }
+.lang-badge {
+  font-weight: 700; color: #cdd6e0; background: #161b22;
+  border: 1px solid #2a313c; border-radius: 6px; padding: 2px 8px; white-space: nowrap;
+}
 .level-cur { font-weight: 800; color: var(--good); min-width: 28px; }
 .level-next { font-weight: 700; color: var(--muted); min-width: 24px; }
 .level-track {
@@ -83,9 +87,16 @@ html, body {
 .sentence .w.active { color: var(--accent); text-shadow: 0 0 18px rgba(88,166,255,.45); }
 .sentence .w:hover { background: rgba(88,166,255,.18); color: #fff; }
 
+/* Pronunciation "subtitles" — how to read the phrase, in Russian letters. */
+.phonetic { font-size: 21px; color: #f5c06b; font-weight: 600; letter-spacing: .4px; margin: 2px 0 4px; }
+.phonetic.hidden { display: none; }
+
 .translation { font-size: 16px; color: var(--muted); font-style: italic; }
 
 #hands { display: flex; align-items: center; justify-content: center; gap: 26px; margin-top: 6px; }
+#bigword-wrap { display: flex; flex-direction: column; align-items: center; min-width: 0; }
+.bigword-phon { font-size: 24px; color: #f5c06b; font-weight: 600; letter-spacing: .4px; min-height: 28px; margin-top: 4px; }
+.repeat-phon { font-size: 22px; color: #f5c06b; font-weight: 600; letter-spacing: .4px; }
 .hand {
   width: 60px; height: 60px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Автозапуск ENGLESY при входе в систему.
+  Автозапуск ENGLESY при входе в систему (после включения компьютера).
   Установка:
     cp com.englesy.popup.plist ~/Library/LaunchAgents/
     launchctl load ~/Library/LaunchAgents/com.englesy.popup.plist
-  Остановить/удалить:
+  Остановить/удалить автозапуск:
     launchctl unload ~/Library/LaunchAgents/com.englesy.popup.plist
+    rm ~/Library/LaunchAgents/com.englesy.popup.plist
 -->
 <plist version="1.0">
 <dict>
@@ -14,16 +15,18 @@
 
   <key>ProgramArguments</key>
   <array>
-    <string>/bin/zsh</string>
-    <string>-lc</string>
-    <string>cd /Users/artemiimiller/Documents/ENGLESY &amp;&amp; npm start</string>
+    <string>/Users/artemiimiller/Documents/ENGLESY/bin/start-englesy.sh</string>
   </array>
 
   <key>RunAtLoad</key>
   <true/>
 
+  <!-- Перезапускать только при сбое, а не после ручного «Выхода» из трея. -->
   <key>KeepAlive</key>
-  <true/>
+  <dict>
+    <key>SuccessfulExit</key>
+    <false/>
+  </dict>
 
   <key>StandardOutPath</key>
   <string>/tmp/englesy.out.log</string>

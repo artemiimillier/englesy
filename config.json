@@ -1,9 +1,24 @@
 {
-  "schedule": {
-    "days": [1, 2, 3, 4, 5],
-    "startHour": 10,
-    "endHour": 17,
-    "everyMinutes": 60
+  "activeLanguage": "fr",
+  "languages": {
+    "en": {
+      "label": "English",
+      "flag": "🇬🇧",
+      "enabled": true,
+      "targetLevel": "B2",
+      "tenseRotation": ["present", "past", "future", "present", "modal", "conditional", "perfect", "present"],
+      "schedule": { "days": [1, 2, 3, 4, 5], "startHour": 9, "endHour": 16, "everyMinutes": 60 },
+      "tts": { "voiceId": "Gfpl8Yo74Is0W6cPUWWT" }
+    },
+    "fr": {
+      "label": "Français",
+      "flag": "🇫🇷",
+      "enabled": true,
+      "targetLevel": "A1",
+      "tenseRotation": ["present"],
+      "schedule": { "days": [1, 2, 3, 4, 5], "startHour": 9, "endHour": 16, "everyMinutes": 60 },
+      "tts": { "voiceId": "MJKL8oE6ZYeX9UUCDFcR" }
+    }
   },
   "sentencesPerRun": 10,
   "autoAdvanceMs": 0,

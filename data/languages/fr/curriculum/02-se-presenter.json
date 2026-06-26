@@ -1,0 +1,62 @@
+[
+  {
+    "level": "A1",
+    "pattern": "Je m'appelle — меня зовут",
+    "tense": "present",
+    "sentences": [
+      { "text": "Je m'appelle Marie", "translation": "Меня зовут Мари", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "m'appelle", "t": "зовусь", "p": "мапель" }, { "w": "Marie", "t": "Мари", "p": "мари" } ] },
+      { "text": "Je m'appelle Paul", "translation": "Меня зовут Поль", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "m'appelle", "t": "зовусь", "p": "мапель" }, { "w": "Paul", "t": "Поль", "p": "поль" } ] },
+      { "text": "Comment tu t'appelles?", "translation": "Как тебя зовут?", "gloss": [ { "w": "Comment", "t": "как", "p": "коман" }, { "w": "tu", "t": "ты", "p": "тю" }, { "w": "t'appelles?", "t": "зовёшься?", "p": "тапель?" } ] },
+      { "text": "Comment vous appelez-vous?", "translation": "Как вас зовут?", "gloss": [ { "w": "Comment", "t": "как", "p": "коман" }, { "w": "vous", "t": "вы", "p": "ву" }, { "w": "appelez-vous?", "t": "зовётесь?", "p": "апле-ву?" } ] },
+      { "text": "Tu t'appelles comment?", "translation": "Тебя как зовут?", "gloss": [ { "w": "Tu", "t": "ты", "p": "тю" }, { "w": "t'appelles", "t": "зовёшься", "p": "тапель" }, { "w": "comment?", "t": "как?", "p": "коман?" } ] },
+      { "text": "Enchanté", "translation": "Очень приятно", "gloss": [ { "w": "Enchanté", "t": "очень приятно", "p": "аншанте" } ] },
+      { "text": "Enchantée de vous connaître", "translation": "Приятно с вами познакомиться", "gloss": [ { "w": "Enchantée", "t": "очень приятно", "p": "аншанте" }, { "w": "de", "t": "(предлог)", "p": "дё" }, { "w": "vous", "t": "вас", "p": "ву" }, { "w": "connaître", "t": "знать", "p": "конэтр" } ] },
+      { "text": "Voici Marie", "translation": "Это Мари", "gloss": [ { "w": "Voici", "t": "вот", "p": "вуаси" }, { "w": "Marie", "t": "Мари", "p": "мари" } ] },
+      { "text": "Voici mon ami", "translation": "Это мой друг", "gloss": [ { "w": "Voici", "t": "вот", "p": "вуаси" }, { "w": "mon", "t": "мой", "p": "мон" }, { "w": "ami", "t": "друг", "p": "ами" } ] },
+      { "text": "Je te présente Paul", "translation": "Знакомься, это Поль", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "te", "t": "тебе", "p": "тё" }, { "w": "présente", "t": "представляю", "p": "презант" }, { "w": "Paul", "t": "Поль", "p": "поль" } ] },
+      { "text": "Je vous présente ma femme", "translation": "Представляю вам мою жену", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "vous", "t": "вам", "p": "ву" }, { "w": "présente", "t": "представляю", "p": "презант" }, { "w": "ma", "t": "мою", "p": "ма" }, { "w": "femme", "t": "жену", "p": "фам" } ] },
+      { "text": "C'est mon mari", "translation": "Это мой муж", "gloss": [ { "w": "C'est", "t": "это", "p": "сэ" }, { "w": "mon", "t": "мой", "p": "мон" }, { "w": "mari", "t": "муж", "p": "мари" } ] },
+      { "text": "Ravi de te connaître", "translation": "Рад познакомиться с тобой", "gloss": [ { "w": "Ravi", "t": "рад", "p": "рави" }, { "w": "de", "t": "(предлог)", "p": "дё" }, { "w": "te", "t": "тебя", "p": "тё" }, { "w": "connaître", "t": "знать", "p": "конэтр" } ] }
+    ]
+  },
+  {
+    "level": "A1",
+    "pattern": "Je suis... — кто я",
+    "tense": "present",
+    "sentences": [
+      { "text": "Je suis étudiant", "translation": "Я студент", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "suis", "t": "есть", "p": "сюи" }, { "w": "étudiant", "t": "студент", "p": "этюдьян" } ] },
+      { "text": "Je suis étudiante", "translation": "Я студентка", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "suis", "t": "есть", "p": "сюи" }, { "w": "étudiante", "t": "студентка", "p": "этюдьянт" } ] },
+      { "text": "Je suis professeur", "translation": "Я преподаватель", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "suis", "t": "есть", "p": "сюи" }, { "w": "professeur", "t": "преподаватель", "p": "профессёр" } ] },
+      { "text": "Je suis médecin", "translation": "Я врач", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "suis", "t": "есть", "p": "сюи" }, { "w": "médecin", "t": "врач", "p": "медсэн" } ] },
+      { "text": "Je suis russe", "translation": "Я русский", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "suis", "t": "есть", "p": "сюи" }, { "w": "russe", "t": "русский", "p": "рюс" } ] },
+      { "text": "Je suis marié", "translation": "Я женат", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "suis", "t": "есть", "p": "сюи" }, { "w": "marié", "t": "женат", "p": "марье" } ] },
+      { "text": "Je suis mariée", "translation": "Я замужем", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "suis", "t": "есть", "p": "сюи" }, { "w": "mariée", "t": "замужем", "p": "марье" } ] },
+      { "text": "Je suis célibataire", "translation": "Я не женат", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "suis", "t": "есть", "p": "сюи" }, { "w": "célibataire", "t": "холост", "p": "селибатэр" } ] },
+      { "text": "Je suis là", "translation": "Я здесь", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "suis", "t": "есть", "p": "сюи" }, { "w": "là", "t": "здесь", "p": "ла" } ] },
+      { "text": "Je ne suis pas français", "translation": "Я не француз", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "ne", "t": "не", "p": "нё" }, { "w": "suis", "t": "есть", "p": "сюи" }, { "w": "pas", "t": "(отрицание)", "p": "па" }, { "w": "français", "t": "француз", "p": "франсэ" } ] },
+      { "text": "Tu es étudiant?", "translation": "Ты студент?", "gloss": [ { "w": "Tu", "t": "ты", "p": "тю" }, { "w": "es", "t": "есть", "p": "э" }, { "w": "étudiant?", "t": "студент?", "p": "этюдьян?" } ] },
+      { "text": "Vous êtes professeur?", "translation": "Вы преподаватель?", "gloss": [ { "w": "Vous", "t": "вы", "p": "ву" }, { "w": "êtes", "t": "есть", "p": "эт" }, { "w": "professeur?", "t": "преподаватель?", "p": "профессёр?" } ] },
+      { "text": "Je suis content", "translation": "Я доволен", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "suis", "t": "есть", "p": "сюи" }, { "w": "content", "t": "довольный", "p": "контан" } ] }
+    ]
+  },
+  {
+    "level": "A1",
+    "pattern": "J'ai ... ans — возраст и контакты",
+    "tense": "present",
+    "sentences": [
+      { "text": "J'ai vingt ans", "translation": "Мне двадцать лет", "gloss": [ { "w": "J'ai", "t": "у меня есть", "p": "жэ" }, { "w": "vingt", "t": "двадцать", "p": "вэн" }, { "w": "ans", "t": "лет", "p": "ан" } ] },
+      { "text": "J'ai trente ans", "translation": "Мне тридцать лет", "gloss": [ { "w": "J'ai", "t": "у меня есть", "p": "жэ" }, { "w": "trente", "t": "тридцать", "p": "трант" }, { "w": "ans", "t": "лет", "p": "ан" } ] },
+      { "text": "Quel âge as-tu?", "translation": "Сколько тебе лет?", "gloss": [ { "w": "Quel", "t": "какой", "p": "кэль" }, { "w": "âge", "t": "возраст", "p": "аж" }, { "w": "as-tu?", "t": "у тебя?", "p": "а-тю?" } ] },
+      { "text": "Quel âge avez-vous?", "translation": "Сколько вам лет?", "gloss": [ { "w": "Quel", "t": "какой", "p": "кэль" }, { "w": "âge", "t": "возраст", "p": "аж" }, { "w": "avez-vous?", "t": "у вас?", "p": "аве-ву?" } ] },
+      { "text": "Tu as quel âge?", "translation": "Тебе сколько лет?", "gloss": [ { "w": "Tu", "t": "ты", "p": "тю" }, { "w": "as", "t": "имеешь", "p": "а" }, { "w": "quel", "t": "какой", "p": "кэль" }, { "w": "âge?", "t": "возраст?", "p": "аж?" } ] },
+      { "text": "Mon numéro est facile", "translation": "Мой номер простой", "gloss": [ { "w": "Mon", "t": "мой", "p": "мон" }, { "w": "numéro", "t": "номер", "p": "нюмеро" }, { "w": "est", "t": "есть", "p": "э" }, { "w": "facile", "t": "простой", "p": "фасиль" } ] },
+      { "text": "Voici mon numéro", "translation": "Вот мой номер", "gloss": [ { "w": "Voici", "t": "вот", "p": "вуаси" }, { "w": "mon", "t": "мой", "p": "мон" }, { "w": "numéro", "t": "номер", "p": "нюмеро" } ] },
+      { "text": "Mon email est ici", "translation": "Мой адрес здесь", "gloss": [ { "w": "Mon", "t": "мой", "p": "мон" }, { "w": "email", "t": "адрес", "p": "имэйль" }, { "w": "est", "t": "есть", "p": "э" }, { "w": "ici", "t": "здесь", "p": "иси" } ] },
+      { "text": "Quel est ton numéro?", "translation": "Какой у тебя номер?", "gloss": [ { "w": "Quel", "t": "какой", "p": "кэль" }, { "w": "est", "t": "есть", "p": "э" }, { "w": "ton", "t": "твой", "p": "тон" }, { "w": "numéro?", "t": "номер?", "p": "нюмеро?" } ] },
+      { "text": "J'habite à Moscou", "translation": "Я живу в Москве", "gloss": [ { "w": "J'habite", "t": "я живу", "p": "жабит" }, { "w": "à", "t": "в", "p": "а" }, { "w": "Moscou", "t": "Москве", "p": "моску" } ] },
+      { "text": "J'habite à Paris", "translation": "Я живу в Париже", "gloss": [ { "w": "J'habite", "t": "я живу", "p": "жабит" }, { "w": "à", "t": "в", "p": "а" }, { "w": "Paris", "t": "Париже", "p": "пари" } ] },
+      { "text": "Où habites-tu?", "translation": "Где ты живёшь?", "gloss": [ { "w": "Où", "t": "где", "p": "у" }, { "w": "habites-tu?", "t": "ты живёшь?", "p": "абит-тю?" } ] },
+      { "text": "J'habite en Russie", "translation": "Я живу в России", "gloss": [ { "w": "J'habite", "t": "я живу", "p": "жабит" }, { "w": "en", "t": "в", "p": "ан" }, { "w": "Russie", "t": "России", "p": "рюси" } ] }
+    ]
+  }
+]

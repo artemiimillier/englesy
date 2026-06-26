@@ -1,0 +1,62 @@
+[
+  {
+    "level": "A1",
+    "pattern": "être au présent — формы глагола «быть»",
+    "tense": "present",
+    "sentences": [
+      { "text": "Je suis ici", "translation": "Я здесь", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "suis", "t": "есть", "p": "сюи" }, { "w": "ici", "t": "здесь", "p": "иси" } ] },
+      { "text": "Je suis prêt", "translation": "Я готов", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "suis", "t": "есть", "p": "сюи" }, { "w": "prêt", "t": "готов", "p": "прэ" } ] },
+      { "text": "Tu es gentil", "translation": "Ты добрый", "gloss": [ { "w": "Tu", "t": "ты", "p": "тю" }, { "w": "es", "t": "есть", "p": "э" }, { "w": "gentil", "t": "добрый", "p": "жанти" } ] },
+      { "text": "Tu es là", "translation": "Ты здесь", "gloss": [ { "w": "Tu", "t": "ты", "p": "тю" }, { "w": "es", "t": "есть", "p": "э" }, { "w": "là", "t": "здесь", "p": "ла" } ] },
+      { "text": "Il est grand", "translation": "Он высокий", "gloss": [ { "w": "Il", "t": "он", "p": "иль" }, { "w": "est", "t": "есть", "p": "э" }, { "w": "grand", "t": "высокий", "p": "гран" } ] },
+      { "text": "Elle est jeune", "translation": "Она молодая", "gloss": [ { "w": "Elle", "t": "она", "p": "эль" }, { "w": "est", "t": "есть", "p": "э" }, { "w": "jeune", "t": "молодая", "p": "жён" } ] },
+      { "text": "Nous sommes amis", "translation": "Мы друзья", "gloss": [ { "w": "Nous", "t": "мы", "p": "ну" }, { "w": "sommes", "t": "есть", "p": "сом" }, { "w": "amis", "t": "друзья", "p": "ами" } ] },
+      { "text": "Nous sommes prêts", "translation": "Мы готовы", "gloss": [ { "w": "Nous", "t": "мы", "p": "ну" }, { "w": "sommes", "t": "есть", "p": "сом" }, { "w": "prêts", "t": "готовы", "p": "прэ" } ] },
+      { "text": "Vous êtes français", "translation": "Вы француз", "gloss": [ { "w": "Vous", "t": "вы", "p": "ву" }, { "w": "êtes", "t": "есть", "p": "эт" }, { "w": "français", "t": "француз", "p": "франсэ" } ] },
+      { "text": "Vous êtes ici", "translation": "Вы здесь", "gloss": [ { "w": "Vous", "t": "вы", "p": "ву" }, { "w": "êtes", "t": "есть", "p": "эт" }, { "w": "ici", "t": "здесь", "p": "иси" } ] },
+      { "text": "Ils sont contents", "translation": "Они довольны", "gloss": [ { "w": "Ils", "t": "они", "p": "иль" }, { "w": "sont", "t": "есть", "p": "сон" }, { "w": "contents", "t": "довольны", "p": "контан" } ] },
+      { "text": "Elles sont là", "translation": "Они здесь", "gloss": [ { "w": "Elles", "t": "они", "p": "эль" }, { "w": "sont", "t": "есть", "p": "сон" }, { "w": "là", "t": "здесь", "p": "ла" } ] },
+      { "text": "Je ne suis pas prêt", "translation": "Я не готов", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "ne", "t": "не", "p": "нё" }, { "w": "suis", "t": "есть", "p": "сюи" }, { "w": "pas", "t": "(отрицание)", "p": "па" }, { "w": "prêt", "t": "готов", "p": "прэ" } ] }
+    ]
+  },
+  {
+    "level": "A1",
+    "pattern": "C'est... — это / это есть",
+    "tense": "present",
+    "sentences": [
+      { "text": "C'est bon", "translation": "Это хорошо", "gloss": [ { "w": "C'est", "t": "это", "p": "сэ" }, { "w": "bon", "t": "хорошо", "p": "бон" } ] },
+      { "text": "C'est facile", "translation": "Это легко", "gloss": [ { "w": "C'est", "t": "это", "p": "сэ" }, { "w": "facile", "t": "легко", "p": "фасиль" } ] },
+      { "text": "C'est difficile", "translation": "Это трудно", "gloss": [ { "w": "C'est", "t": "это", "p": "сэ" }, { "w": "difficile", "t": "трудно", "p": "дификиль" } ] },
+      { "text": "C'est mon ami", "translation": "Это мой друг", "gloss": [ { "w": "C'est", "t": "это", "p": "сэ" }, { "w": "mon", "t": "мой", "p": "мон" }, { "w": "ami", "t": "друг", "p": "ами" } ] },
+      { "text": "C'est ma maison", "translation": "Это мой дом", "gloss": [ { "w": "C'est", "t": "это", "p": "сэ" }, { "w": "ma", "t": "мой", "p": "ма" }, { "w": "maison", "t": "дом", "p": "мэзон" } ] },
+      { "text": "C'est ça", "translation": "Именно так", "gloss": [ { "w": "C'est", "t": "это", "p": "сэ" }, { "w": "ça", "t": "так", "p": "са" } ] },
+      { "text": "C'est vrai", "translation": "Это правда", "gloss": [ { "w": "C'est", "t": "это", "p": "сэ" }, { "w": "vrai", "t": "правда", "p": "врэ" } ] },
+      { "text": "C'est très bien", "translation": "Это очень хорошо", "gloss": [ { "w": "C'est", "t": "это", "p": "сэ" }, { "w": "très", "t": "очень", "p": "трэ" }, { "w": "bien", "t": "хорошо", "p": "бьен" } ] },
+      { "text": "Ce n'est pas loin", "translation": "Это недалеко", "gloss": [ { "w": "Ce", "t": "это", "p": "сё" }, { "w": "n'est", "t": "не есть", "p": "нэ" }, { "w": "pas", "t": "(отрицание)", "p": "па" }, { "w": "loin", "t": "далеко", "p": "луэн" } ] },
+      { "text": "Ce n'est pas grave", "translation": "Это неважно", "gloss": [ { "w": "Ce", "t": "это", "p": "сё" }, { "w": "n'est", "t": "не есть", "p": "нэ" }, { "w": "pas", "t": "(отрицание)", "p": "па" }, { "w": "grave", "t": "серьёзно", "p": "грав" } ] },
+      { "text": "Qu'est-ce que c'est?", "translation": "Что это?", "gloss": [ { "w": "Qu'est-ce", "t": "что", "p": "кэс" }, { "w": "que", "t": "(вопрос)", "p": "кё" }, { "w": "c'est?", "t": "это?", "p": "сэ?" } ] },
+      { "text": "C'est combien?", "translation": "Сколько это стоит?", "gloss": [ { "w": "C'est", "t": "это", "p": "сэ" }, { "w": "combien?", "t": "сколько?", "p": "комбьен?" } ] },
+      { "text": "C'est pour toi", "translation": "Это для тебя", "gloss": [ { "w": "C'est", "t": "это", "p": "сэ" }, { "w": "pour", "t": "для", "p": "пур" }, { "w": "toi", "t": "тебя", "p": "туа" } ] }
+    ]
+  },
+  {
+    "level": "A1",
+    "pattern": "Il est / Elle est — описание людей",
+    "tense": "present",
+    "sentences": [
+      { "text": "Il est grand", "translation": "Он высокий", "gloss": [ { "w": "Il", "t": "он", "p": "иль" }, { "w": "est", "t": "есть", "p": "э" }, { "w": "grand", "t": "высокий", "p": "гран" } ] },
+      { "text": "Il est petit", "translation": "Он маленький", "gloss": [ { "w": "Il", "t": "он", "p": "иль" }, { "w": "est", "t": "есть", "p": "э" }, { "w": "petit", "t": "маленький", "p": "пёти" } ] },
+      { "text": "Elle est gentille", "translation": "Она добрая", "gloss": [ { "w": "Elle", "t": "она", "p": "эль" }, { "w": "est", "t": "есть", "p": "э" }, { "w": "gentille", "t": "добрая", "p": "жантий" } ] },
+      { "text": "Elle est belle", "translation": "Она красивая", "gloss": [ { "w": "Elle", "t": "она", "p": "эль" }, { "w": "est", "t": "есть", "p": "э" }, { "w": "belle", "t": "красивая", "p": "бэль" } ] },
+      { "text": "Il est français", "translation": "Он француз", "gloss": [ { "w": "Il", "t": "он", "p": "иль" }, { "w": "est", "t": "есть", "p": "э" }, { "w": "français", "t": "француз", "p": "франсэ" } ] },
+      { "text": "Elle est russe", "translation": "Она русская", "gloss": [ { "w": "Elle", "t": "она", "p": "эль" }, { "w": "est", "t": "есть", "p": "э" }, { "w": "russe", "t": "русская", "p": "рюс" } ] },
+      { "text": "Il est sympa", "translation": "Он симпатичный", "gloss": [ { "w": "Il", "t": "он", "p": "иль" }, { "w": "est", "t": "есть", "p": "э" }, { "w": "sympa", "t": "симпатичный", "p": "сэнпа" } ] },
+      { "text": "Elle est intelligente", "translation": "Она умная", "gloss": [ { "w": "Elle", "t": "она", "p": "эль" }, { "w": "est", "t": "есть", "p": "э" }, { "w": "intelligente", "t": "умная", "p": "энтелижант" } ] },
+      { "text": "Ils sont sympas", "translation": "Они симпатичные", "gloss": [ { "w": "Ils", "t": "они", "p": "иль" }, { "w": "sont", "t": "есть", "p": "сон" }, { "w": "sympas", "t": "симпатичные", "p": "сэнпа" } ] },
+      { "text": "Elles sont jeunes", "translation": "Они молодые", "gloss": [ { "w": "Elles", "t": "они", "p": "эль" }, { "w": "sont", "t": "есть", "p": "сон" }, { "w": "jeunes", "t": "молодые", "p": "жён" } ] },
+      { "text": "Il est très gentil", "translation": "Он очень добрый", "gloss": [ { "w": "Il", "t": "он", "p": "иль" }, { "w": "est", "t": "есть", "p": "э" }, { "w": "très", "t": "очень", "p": "трэ" }, { "w": "gentil", "t": "добрый", "p": "жанти" } ] },
+      { "text": "Elle est fatiguée", "translation": "Она устала", "gloss": [ { "w": "Elle", "t": "она", "p": "эль" }, { "w": "est", "t": "есть", "p": "э" }, { "w": "fatiguée", "t": "уставшая", "p": "фатиге" } ] },
+      { "text": "Il n'est pas grand", "translation": "Он невысокий", "gloss": [ { "w": "Il", "t": "он", "p": "иль" }, { "w": "n'est", "t": "не есть", "p": "нэ" }, { "w": "pas", "t": "(отрицание)", "p": "па" }, { "w": "grand", "t": "высокий", "p": "гран" } ] }
+    ]
+  }
+]

@@ -1,0 +1,65 @@
+[
+  {
+    "level": "A1",
+    "pattern": "aller — идти / ехать",
+    "tense": "present",
+    "sentences": [
+      { "text": "Je vais", "translation": "Я иду", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "vais", "t": "иду", "p": "вэ" } ] },
+      { "text": "Tu vas", "translation": "Ты идёшь", "gloss": [ { "w": "Tu", "t": "ты", "p": "тю" }, { "w": "vas", "t": "идёшь", "p": "ва" } ] },
+      { "text": "Il va", "translation": "Он идёт", "gloss": [ { "w": "Il", "t": "он", "p": "иль" }, { "w": "va", "t": "идёт", "p": "ва" } ] },
+      { "text": "Elle va à l'école", "translation": "Она идёт в школу", "gloss": [ { "w": "Elle", "t": "она", "p": "эль" }, { "w": "va", "t": "идёт", "p": "ва" }, { "w": "à", "t": "в", "p": "а" }, { "w": "l'école", "t": "школу", "p": "леколь" } ] },
+      { "text": "Nous allons", "translation": "Мы идём", "gloss": [ { "w": "Nous", "t": "мы", "p": "ну" }, { "w": "allons", "t": "идём", "p": "алон" } ] },
+      { "text": "Vous allez", "translation": "Вы идёте", "gloss": [ { "w": "Vous", "t": "вы", "p": "ву" }, { "w": "allez", "t": "идёте", "p": "але" } ] },
+      { "text": "Ils vont", "translation": "Они идут", "gloss": [ { "w": "Ils", "t": "они", "p": "иль" }, { "w": "vont", "t": "идут", "p": "вон" } ] },
+      { "text": "On y va", "translation": "Пойдём", "gloss": [ { "w": "On", "t": "мы", "p": "он" }, { "w": "y", "t": "(туда)", "p": "и" }, { "w": "va", "t": "идём", "p": "ва" } ] },
+      { "text": "Je vais au travail", "translation": "Я еду на работу", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "vais", "t": "еду", "p": "вэ" }, { "w": "au", "t": "на", "p": "о" }, { "w": "travail", "t": "работу", "p": "травай" } ] },
+      { "text": "Tu vas où?", "translation": "Ты куда идёшь?", "gloss": [ { "w": "Tu", "t": "ты", "p": "тю" }, { "w": "vas", "t": "идёшь", "p": "ва" }, { "w": "où?", "t": "куда?", "p": "у?" } ] },
+      { "text": "Nous allons au cinéma", "translation": "Мы идём в кино", "gloss": [ { "w": "Nous", "t": "мы", "p": "ну" }, { "w": "allons", "t": "идём", "p": "алон" }, { "w": "au", "t": "в", "p": "о" }, { "w": "cinéma", "t": "кино", "p": "синема" } ] },
+      { "text": "Vous allez à la gare", "translation": "Вы едете на вокзал", "gloss": [ { "w": "Vous", "t": "вы", "p": "ву" }, { "w": "allez", "t": "едете", "p": "але" }, { "w": "à", "t": "на", "p": "а" }, { "w": "la", "t": "(артикль)", "p": "ля" }, { "w": "gare", "t": "вокзал", "p": "гар" } ] },
+      { "text": "Ils vont au restaurant", "translation": "Они идут в ресторан", "gloss": [ { "w": "Ils", "t": "они", "p": "иль" }, { "w": "vont", "t": "идут", "p": "вон" }, { "w": "au", "t": "в", "p": "о" }, { "w": "restaurant", "t": "ресторан", "p": "рэсторан" } ] },
+      { "text": "On va manger", "translation": "Мы идём есть", "gloss": [ { "w": "On", "t": "мы", "p": "он" }, { "w": "va", "t": "идём", "p": "ва" }, { "w": "manger", "t": "есть", "p": "манже" } ] }
+    ]
+  },
+  {
+    "level": "A1",
+    "pattern": "faire — делать",
+    "tense": "present",
+    "sentences": [
+      { "text": "Je fais", "translation": "Я делаю", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "fais", "t": "делаю", "p": "фэ" } ] },
+      { "text": "Tu fais", "translation": "Ты делаешь", "gloss": [ { "w": "Tu", "t": "ты", "p": "тю" }, { "w": "fais", "t": "делаешь", "p": "фэ" } ] },
+      { "text": "Il fait", "translation": "Он делает", "gloss": [ { "w": "Il", "t": "он", "p": "иль" }, { "w": "fait", "t": "делает", "p": "фэ" } ] },
+      { "text": "Qu'est-ce que tu fais?", "translation": "Что ты делаешь?", "gloss": [ { "w": "Qu'est-ce", "t": "что", "p": "кэс" }, { "w": "que", "t": "(частица)", "p": "кё" }, { "w": "tu", "t": "ты", "p": "тю" }, { "w": "fais?", "t": "делаешь?", "p": "фэ?" } ] },
+      { "text": "Je fais du sport", "translation": "Я занимаюсь спортом", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "fais", "t": "занимаюсь", "p": "фэ" }, { "w": "du", "t": "(предлог)", "p": "дю" }, { "w": "sport", "t": "спортом", "p": "спор" } ] },
+      { "text": "Je fais la cuisine", "translation": "Я готовлю", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "fais", "t": "делаю", "p": "фэ" }, { "w": "la", "t": "(артикль)", "p": "ля" }, { "w": "cuisine", "t": "готовку", "p": "кюизин" } ] },
+      { "text": "Je fais les courses", "translation": "Я делаю покупки", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "fais", "t": "делаю", "p": "фэ" }, { "w": "les", "t": "(артикль)", "p": "ле" }, { "w": "courses", "t": "покупки", "p": "курс" } ] },
+      { "text": "Nous faisons", "translation": "Мы делаем", "gloss": [ { "w": "Nous", "t": "мы", "p": "ну" }, { "w": "faisons", "t": "делаем", "p": "фёзон" } ] },
+      { "text": "Vous faites", "translation": "Вы делаете", "gloss": [ { "w": "Vous", "t": "вы", "p": "ву" }, { "w": "faites", "t": "делаете", "p": "фэт" } ] },
+      { "text": "Ils font", "translation": "Они делают", "gloss": [ { "w": "Ils", "t": "они", "p": "иль" }, { "w": "font", "t": "делают", "p": "фон" } ] },
+      { "text": "Je fais mes devoirs", "translation": "Я делаю домашнее задание", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "fais", "t": "делаю", "p": "фэ" }, { "w": "mes", "t": "мои", "p": "ме" }, { "w": "devoirs", "t": "задания", "p": "дёвуар" } ] },
+      { "text": "Tu fais le ménage?", "translation": "Ты делаешь уборку?", "gloss": [ { "w": "Tu", "t": "ты", "p": "тю" }, { "w": "fais", "t": "делаешь", "p": "фэ" }, { "w": "le", "t": "(артикль)", "p": "лё" }, { "w": "ménage?", "t": "уборку?", "p": "менаж?" } ] },
+      { "text": "Il fait beau", "translation": "Погода хорошая", "gloss": [ { "w": "Il", "t": "(безличн.)", "p": "иль" }, { "w": "fait", "t": "стоит", "p": "фэ" }, { "w": "beau", "t": "хорошо", "p": "бо" } ] },
+      { "text": "Qu'est-ce qu'il fait?", "translation": "Что он делает?", "gloss": [ { "w": "Qu'est-ce", "t": "что", "p": "кэс" }, { "w": "qu'il", "t": "он", "p": "киль" }, { "w": "fait?", "t": "делает?", "p": "фэ?" } ] }
+    ]
+  },
+  {
+    "level": "A1",
+    "pattern": "Où vas-tu? — направления с aller",
+    "tense": "present",
+    "sentences": [
+      { "text": "Où vas-tu?", "translation": "Куда ты идёшь?", "gloss": [ { "w": "Où", "t": "куда", "p": "у" }, { "w": "vas-tu?", "t": "ты идёшь?", "p": "ва-тю?" } ] },
+      { "text": "Je vais à la maison", "translation": "Я иду домой", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "vais", "t": "иду", "p": "вэ" }, { "w": "à", "t": "в", "p": "а" }, { "w": "la", "t": "(артикль)", "p": "ля" }, { "w": "maison", "t": "дом", "p": "мэзон" } ] },
+      { "text": "Je vais au marché", "translation": "Я иду на рынок", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "vais", "t": "иду", "p": "вэ" }, { "w": "au", "t": "на", "p": "о" }, { "w": "marché", "t": "рынок", "p": "марше" } ] },
+      { "text": "Je vais chez moi", "translation": "Я иду к себе домой", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "vais", "t": "иду", "p": "вэ" }, { "w": "chez", "t": "к", "p": "ше" }, { "w": "moi", "t": "себе", "p": "муа" } ] },
+      { "text": "Je vais chez le médecin", "translation": "Я иду к врачу", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "vais", "t": "иду", "p": "вэ" }, { "w": "chez", "t": "к", "p": "ше" }, { "w": "le", "t": "(артикль)", "p": "лё" }, { "w": "médecin", "t": "врачу", "p": "медсэн" } ] },
+      { "text": "Je vais en France", "translation": "Я еду во Францию", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "vais", "t": "еду", "p": "вэ" }, { "w": "en", "t": "во", "p": "ан" }, { "w": "France", "t": "Францию", "p": "франс" } ] },
+      { "text": "On va où?", "translation": "Куда мы идём?", "gloss": [ { "w": "On", "t": "мы", "p": "он" }, { "w": "va", "t": "идём", "p": "ва" }, { "w": "où?", "t": "куда?", "p": "у?" } ] },
+      { "text": "Je vais à Paris", "translation": "Я еду в Париж", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "vais", "t": "еду", "p": "вэ" }, { "w": "à", "t": "в", "p": "а" }, { "w": "Paris", "t": "Париж", "p": "пари" } ] },
+      { "text": "Tu vas à la banque?", "translation": "Ты идёшь в банк?", "gloss": [ { "w": "Tu", "t": "ты", "p": "тю" }, { "w": "vas", "t": "идёшь", "p": "ва" }, { "w": "à", "t": "в", "p": "а" }, { "w": "la", "t": "(артикль)", "p": "ля" }, { "w": "banque?", "t": "банк?", "p": "банк?" } ] },
+      { "text": "Nous allons à la plage", "translation": "Мы идём на пляж", "gloss": [ { "w": "Nous", "t": "мы", "p": "ну" }, { "w": "allons", "t": "идём", "p": "алон" }, { "w": "à", "t": "на", "p": "а" }, { "w": "la", "t": "(артикль)", "p": "ля" }, { "w": "plage", "t": "пляж", "p": "пляж" } ] },
+      { "text": "Vous allez chez vous", "translation": "Вы идёте к себе домой", "gloss": [ { "w": "Vous", "t": "вы", "p": "ву" }, { "w": "allez", "t": "идёте", "p": "але" }, { "w": "chez", "t": "к", "p": "ше" }, { "w": "vous", "t": "себе", "p": "ву" } ] },
+      { "text": "Il va au bureau", "translation": "Он идёт в офис", "gloss": [ { "w": "Il", "t": "он", "p": "иль" }, { "w": "va", "t": "идёт", "p": "ва" }, { "w": "au", "t": "в", "p": "о" }, { "w": "bureau", "t": "офис", "p": "бюро" } ] },
+      { "text": "Je vais à l'hôtel", "translation": "Я иду в отель", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "vais", "t": "иду", "p": "вэ" }, { "w": "à", "t": "в", "p": "а" }, { "w": "l'hôtel", "t": "отель", "p": "лотель" } ] },
+      { "text": "Où allez-vous?", "translation": "Куда вы идёте?", "gloss": [ { "w": "Où", "t": "куда", "p": "у" }, { "w": "allez-vous?", "t": "вы идёте?", "p": "але-ву?" } ] }
+    ]
+  }
+]

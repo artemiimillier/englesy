@@ -1,0 +1,42 @@
+[
+  {
+    "level": "A1",
+    "pattern": "Je vais + infinitif — ближайшее будущее (собираюсь)",
+    "tense": "futur-proche",
+    "sentences": [
+      { "text": "Je vais manger", "translation": "Я сейчас буду есть", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "vais", "t": "собираюсь", "p": "вэ" }, { "w": "manger", "t": "есть", "p": "манже" } ] },
+      { "text": "Je vais partir", "translation": "Я сейчас уйду", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "vais", "t": "собираюсь", "p": "вэ" }, { "w": "partir", "t": "уйти", "p": "партир" } ] },
+      { "text": "Je vais dormir", "translation": "Я сейчас лягу спать", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "vais", "t": "собираюсь", "p": "вэ" }, { "w": "dormir", "t": "спать", "p": "дормир" } ] },
+      { "text": "Qu'est-ce que tu vas faire?", "translation": "Что ты будешь делать?", "gloss": [ { "w": "Qu'est-ce", "t": "что", "p": "кэс" }, { "w": "que", "t": "(вопрос)", "p": "кё" }, { "w": "tu", "t": "ты", "p": "тю" }, { "w": "vas", "t": "собираешься", "p": "ва" }, { "w": "faire?", "t": "делать?", "p": "фэр?" } ] },
+      { "text": "On va voir", "translation": "Посмотрим", "gloss": [ { "w": "On", "t": "мы", "p": "он" }, { "w": "va", "t": "собираемся", "p": "ва" }, { "w": "voir", "t": "видеть", "p": "вуар" } ] },
+      { "text": "Je vais travailler", "translation": "Я сейчас буду работать", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "vais", "t": "собираюсь", "p": "вэ" }, { "w": "travailler", "t": "работать", "p": "травайе" } ] },
+      { "text": "Tu vas comprendre", "translation": "Ты скоро поймёшь", "gloss": [ { "w": "Tu", "t": "ты", "p": "тю" }, { "w": "vas", "t": "собираешься", "p": "ва" }, { "w": "comprendre", "t": "понять", "p": "компрандр" } ] },
+      { "text": "Il va pleuvoir", "translation": "Скоро пойдёт дождь", "gloss": [ { "w": "Il", "t": "(безличное)", "p": "иль" }, { "w": "va", "t": "собирается", "p": "ва" }, { "w": "pleuvoir", "t": "идти (о дожде)", "p": "плёвуар" } ] },
+      { "text": "Nous allons commencer", "translation": "Мы сейчас начнём", "gloss": [ { "w": "Nous", "t": "мы", "p": "ну" }, { "w": "allons", "t": "собираемся", "p": "алон" }, { "w": "commencer", "t": "начать", "p": "комансе" } ] },
+      { "text": "Vous allez attendre", "translation": "Вы будете ждать", "gloss": [ { "w": "Vous", "t": "вы", "p": "ву" }, { "w": "allez", "t": "собираетесь", "p": "але" }, { "w": "attendre", "t": "ждать", "p": "атандр" } ] },
+      { "text": "Je vais téléphoner", "translation": "Я сейчас позвоню", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "vais", "t": "собираюсь", "p": "вэ" }, { "w": "téléphoner", "t": "звонить", "p": "телефоне" } ] },
+      { "text": "Elle va arriver bientôt", "translation": "Она скоро приедет", "gloss": [ { "w": "Elle", "t": "она", "p": "эль" }, { "w": "va", "t": "собирается", "p": "ва" }, { "w": "arriver", "t": "прибыть", "p": "ариве" }, { "w": "bientôt", "t": "скоро", "p": "бьенто" } ] },
+      { "text": "Je ne vais pas oublier", "translation": "Я не забуду", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "ne", "t": "не", "p": "нё" }, { "w": "vais", "t": "собираюсь", "p": "вэ" }, { "w": "pas", "t": "не", "p": "па" }, { "w": "oublier", "t": "забыть", "p": "ублие" } ] }
+    ]
+  },
+  {
+    "level": "A1",
+    "pattern": "Demain — планы",
+    "tense": "futur-proche",
+    "sentences": [
+      { "text": "Demain je vais travailler", "translation": "Завтра я буду работать", "gloss": [ { "w": "Demain", "t": "завтра", "p": "дёмэн" }, { "w": "je", "t": "я", "p": "жё" }, { "w": "vais", "t": "собираюсь", "p": "вэ" }, { "w": "travailler", "t": "работать", "p": "травайе" } ] },
+      { "text": "Ce soir on va au cinéma", "translation": "Сегодня вечером мы идём в кино", "gloss": [ { "w": "Ce", "t": "этот", "p": "сё" }, { "w": "soir", "t": "вечер", "p": "суар" }, { "w": "on", "t": "мы", "p": "он" }, { "w": "va", "t": "идём", "p": "ва" }, { "w": "au", "t": "в", "p": "о" }, { "w": "cinéma", "t": "кино", "p": "синема" } ] },
+      { "text": "La semaine prochaine je vais à Paris", "translation": "На следующей неделе я еду в Париж", "gloss": [ { "w": "La", "t": "(артикль)", "p": "ла" }, { "w": "semaine", "t": "неделя", "p": "сёмэн" }, { "w": "prochaine", "t": "следующая", "p": "прошэн" }, { "w": "je", "t": "я", "p": "жё" }, { "w": "vais", "t": "еду", "p": "вэ" }, { "w": "à", "t": "в", "p": "а" }, { "w": "Paris", "t": "Париж", "p": "пари" } ] },
+      { "text": "Je vais rester à la maison", "translation": "Я останусь дома", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "vais", "t": "собираюсь", "p": "вэ" }, { "w": "rester", "t": "остаться", "p": "рэсте" }, { "w": "à", "t": "в", "p": "а" }, { "w": "la", "t": "(артикль)", "p": "ла" }, { "w": "maison", "t": "доме", "p": "мэзон" } ] },
+      { "text": "Demain je vais étudier", "translation": "Завтра я буду учиться", "gloss": [ { "w": "Demain", "t": "завтра", "p": "дёмэн" }, { "w": "je", "t": "я", "p": "жё" }, { "w": "vais", "t": "собираюсь", "p": "вэ" }, { "w": "étudier", "t": "учиться", "p": "этюдье" } ] },
+      { "text": "Ce week-end nous allons voyager", "translation": "В эти выходные мы поедем путешествовать", "gloss": [ { "w": "Ce", "t": "этот", "p": "сё" }, { "w": "week-end", "t": "выходные", "p": "уикенд" }, { "w": "nous", "t": "мы", "p": "ну" }, { "w": "allons", "t": "собираемся", "p": "алон" }, { "w": "voyager", "t": "путешествовать", "p": "вуаяже" } ] },
+      { "text": "Demain matin je vais courir", "translation": "Завтра утром я пойду бегать", "gloss": [ { "w": "Demain", "t": "завтра", "p": "дёмэн" }, { "w": "matin", "t": "утром", "p": "матэн" }, { "w": "je", "t": "я", "p": "жё" }, { "w": "vais", "t": "собираюсь", "p": "вэ" }, { "w": "courir", "t": "бегать", "p": "курир" } ] },
+      { "text": "Ce soir je vais cuisiner", "translation": "Сегодня вечером я буду готовить", "gloss": [ { "w": "Ce", "t": "этот", "p": "сё" }, { "w": "soir", "t": "вечер", "p": "суар" }, { "w": "je", "t": "я", "p": "жё" }, { "w": "vais", "t": "собираюсь", "p": "вэ" }, { "w": "cuisiner", "t": "готовить", "p": "кюизине" } ] },
+      { "text": "Demain tu vas étudier le français", "translation": "Завтра ты будешь учить французский", "gloss": [ { "w": "Demain", "t": "завтра", "p": "дёмэн" }, { "w": "tu", "t": "ты", "p": "тю" }, { "w": "vas", "t": "собираешься", "p": "ва" }, { "w": "étudier", "t": "учить", "p": "этюдье" }, { "w": "le", "t": "(артикль)", "p": "лё" }, { "w": "français", "t": "французский", "p": "франсэ" } ] },
+      { "text": "L'année prochaine je vais déménager", "translation": "В следующем году я перееду", "gloss": [ { "w": "L'année", "t": "год", "p": "ляне" }, { "w": "prochaine", "t": "следующий", "p": "прошэн" }, { "w": "je", "t": "я", "p": "жё" }, { "w": "vais", "t": "собираюсь", "p": "вэ" }, { "w": "déménager", "t": "переехать", "p": "деменаже" } ] },
+      { "text": "Ce soir on va manger au restaurant", "translation": "Сегодня вечером мы будем ужинать в ресторане", "gloss": [ { "w": "Ce", "t": "этот", "p": "сё" }, { "w": "soir", "t": "вечер", "p": "суар" }, { "w": "on", "t": "мы", "p": "он" }, { "w": "va", "t": "собираемся", "p": "ва" }, { "w": "manger", "t": "есть", "p": "манже" }, { "w": "au", "t": "в", "p": "о" }, { "w": "restaurant", "t": "ресторане", "p": "рэсторан" } ] },
+      { "text": "Demain je vais acheter du pain", "translation": "Завтра я куплю хлеб", "gloss": [ { "w": "Demain", "t": "завтра", "p": "дёмэн" }, { "w": "je", "t": "я", "p": "жё" }, { "w": "vais", "t": "собираюсь", "p": "вэ" }, { "w": "acheter", "t": "купить", "p": "ашёте" }, { "w": "du", "t": "(предлог)", "p": "дю" }, { "w": "pain", "t": "хлеб", "p": "пэн" } ] },
+      { "text": "Ce soir je vais me reposer", "translation": "Сегодня вечером я буду отдыхать", "gloss": [ { "w": "Ce", "t": "этот", "p": "сё" }, { "w": "soir", "t": "вечер", "p": "суар" }, { "w": "je", "t": "я", "p": "жё" }, { "w": "vais", "t": "собираюсь", "p": "вэ" }, { "w": "me", "t": "(себя)", "p": "мё" }, { "w": "reposer", "t": "отдыхать", "p": "рёпозе" } ] }
+    ]
+  }
+]

@@ -5,7 +5,10 @@
   "main": "src/main.js",
   "scripts": {
     "start": "electron .",
-    "now": "ELECTRON_POPUP_ON_START=1 electron ."
+    "now": "ELECTRON_POPUP_ON_START=1 electron .",
+    "menubar": "env -u ELECTRON_RUN_AS_NODE electron src/menubar.js",
+    "serve": "node web/serve.js",
+    "launcher": "node web/launcher.js"
   },
   "license": "MIT",
   "devDependencies": {

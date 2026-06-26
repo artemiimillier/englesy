@@ -4,13 +4,25 @@
 
 ## Запуск
 
+**Проще всего — иконкой `ENGLESY.app`** (двойной клик; можно перетащить в Dock). Приложение
+написано на [Electron](https://www.electronjs.org/) (JavaScript + HTML/CSS), работает в фоне как
+значок в меню-баре. Если иконки нет — собрать её одной командой:
+
+```bash
+zsh bin/make-app.sh   # создаёт ENGLESY.app с иконкой в корне проекта
+```
+
+Из терминала — то же самое:
+
 ```bash
 npm install
-npm start        # фоновое приложение (значок 🇬🇧)
+npm start        # фоновое приложение (значок-флаги 🇬🇧🇫🇷)
 npm run now      # запустить и сразу показать окно
 ```
 
-Меню-бар (🇬🇧): время следующего окна, серия дней, «Практика сейчас», «Сбросить таймер», «Выход».
+Меню-бар (🇬🇧🇫🇷): для каждого языка время следующего окна и серия дней, подменю
+«Практика сейчас → язык», «Сбросить таймеры», «Выход». Двойной запуск не плодит копий
+(одна копия на систему); повторный клик по иконке просто открывает практику.
 
 ## Как проходить фразу
 
@@ -66,7 +78,19 @@ ElevenLabs через прокси (обход геоблокировки РФ).
 
 ## Автозапуск при входе
 
+Рекомендуемый способ — **Login Item** (приложение лежит в `~/Documents`, а это защищённая
+папка macOS, поэтому `launchd`/LaunchAgent к ней доступа не имеет). Добавить в автозапуск:
+
 ```bash
-cp com.englesy.popup.plist ~/Library/LaunchAgents/
-launchctl load ~/Library/LaunchAgents/com.englesy.popup.plist
+osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Users/artemiimiller/Documents/ENGLESY/ENGLESY.app", hidden:true, name:"ENGLESY"}'
 ```
+
+Убрать из автозапуска:
+
+```bash
+osascript -e 'tell application "System Events" to delete login item "ENGLESY"'
+```
+
+Либо вручную: **Системные настройки → Основные → Объекты входа → +** и выбрать `ENGLESY.app`.
+(Старый `com.englesy.popup.plist` оставлен для справки — он работает, только если проект лежит
+**вне** `~/Documents`.)

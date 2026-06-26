@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  ENGLESY auto-popup launchd agent (browser version).
+  Keeps the local server + scheduler alive at login so the trainer opens itself
+  in Chrome at the scheduled times (per config.json). Install:
+
+    cp com.englesy.web.plist ~/Library/LaunchAgents/
+    launchctl unload ~/Library/LaunchAgents/com.englesy.web.plist 2>/dev/null
+    launchctl load   ~/Library/LaunchAgents/com.englesy.web.plist
+
+  Stop:  launchctl unload ~/Library/LaunchAgents/com.englesy.web.plist
+  Logs:  /tmp/englesy-launcher.log
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.englesy.web</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/artemiimiller/Documents/ENGLESY/web/run-launcher.sh</string>
+  </array>
+
+  <key>WorkingDirectory</key>
+  <string>/Users/artemiimiller/Documents/ENGLESY</string>
+
+  <key>RunAtLoad</key>
+  <true/>
+
+  <key>KeepAlive</key>
+  <true/>
+
+  <key>StandardOutPath</key>
+  <string>/tmp/englesy-launcher.log</string>
+  <key>StandardErrorPath</key>
+  <string>/tmp/englesy-launcher.log</string>
+</dict>
+</plist>

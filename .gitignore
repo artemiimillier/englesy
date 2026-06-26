@@ -8,6 +8,8 @@ node_modules/
 # personal runtime state (not shared)
 data/progress.json
 data/.state.json
+data/languages/*/progress.json
+data/languages/*/.state.json
 
 # build output
 dist/
@@ -15,3 +17,8 @@ dist/
 # misc
 *.log
 .DS_Store
+
+# test/build artifacts
+.playwright-mcp/
+ENGLESY.app/
+*.jpeg

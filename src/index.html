@@ -9,6 +9,7 @@
   <body>
     <div id="app">
       <div id="levelbar">
+        <span id="lang-badge" class="lang-badge">🌐</span>
         <span id="level-cur" class="level-cur">A2</span>
         <div class="level-track"><div id="level-fill" class="level-fill"></div></div>
         <span id="level-next" class="level-next">B1</span>
@@ -25,17 +26,22 @@
 
       <main id="stage">
         <div id="sentence" class="sentence"></div>
+        <div id="phonetic" class="phonetic hidden"></div>
         <div id="translation" class="translation"></div>
 
         <div id="hands">
           <div id="handL" class="hand">L</div>
-          <div id="bigword" class="bigword">—</div>
+          <div id="bigword-wrap">
+            <div id="bigword" class="bigword">—</div>
+            <div id="bigword-phon" class="bigword-phon"></div>
+          </div>
           <div id="handR" class="hand">R</div>
         </div>
 
         <div id="repeat" class="repeat hidden">
           <div class="repeat-label">Повтори быстро <span id="repeat-target">10</span>×</div>
           <div id="repeat-phrase" class="repeat-phrase"></div>
+          <div id="repeat-phon" class="repeat-phon"></div>
           <div id="repeat-dots" class="repeat-dots"></div>
         </div>
       </main>

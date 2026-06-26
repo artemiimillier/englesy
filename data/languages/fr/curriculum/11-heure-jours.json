@@ -1,0 +1,62 @@
+[
+  {
+    "level": "A1",
+    "pattern": "Quelle heure est-il ? — время",
+    "tense": "present",
+    "sentences": [
+      { "text": "Quelle heure est-il?", "translation": "Который час?", "gloss": [ { "w": "Quelle", "t": "который", "p": "кель" }, { "w": "heure", "t": "час", "p": "ёр" }, { "w": "est-il?", "t": "есть он?", "p": "этиль?" } ] },
+      { "text": "Il est une heure", "translation": "Час дня", "gloss": [ { "w": "Il", "t": "(безличное)", "p": "иль" }, { "w": "est", "t": "есть", "p": "э" }, { "w": "une", "t": "один", "p": "юн" }, { "w": "heure", "t": "час", "p": "ёр" } ] },
+      { "text": "Il est deux heures", "translation": "Два часа", "gloss": [ { "w": "Il", "t": "(безличное)", "p": "иль" }, { "w": "est", "t": "есть", "p": "э" }, { "w": "deux", "t": "два", "p": "дё" }, { "w": "heures", "t": "часа", "p": "ёр" } ] },
+      { "text": "Il est huit heures", "translation": "Восемь часов", "gloss": [ { "w": "Il", "t": "(безличное)", "p": "иль" }, { "w": "est", "t": "есть", "p": "э" }, { "w": "huit", "t": "восемь", "p": "юит" }, { "w": "heures", "t": "часов", "p": "ёр" } ] },
+      { "text": "Il est midi", "translation": "Полдень", "gloss": [ { "w": "Il", "t": "(безличное)", "p": "иль" }, { "w": "est", "t": "есть", "p": "э" }, { "w": "midi", "t": "полдень", "p": "миди" } ] },
+      { "text": "Il est minuit", "translation": "Полночь", "gloss": [ { "w": "Il", "t": "(безличное)", "p": "иль" }, { "w": "est", "t": "есть", "p": "э" }, { "w": "minuit", "t": "полночь", "p": "минюи" } ] },
+      { "text": "Il est huit heures et demie", "translation": "Половина девятого", "gloss": [ { "w": "Il", "t": "(безличное)", "p": "иль" }, { "w": "est", "t": "есть", "p": "э" }, { "w": "huit", "t": "восемь", "p": "юит" }, { "w": "heures", "t": "часов", "p": "ёр" }, { "w": "et", "t": "и", "p": "э" }, { "w": "demie", "t": "половина", "p": "дёми" } ] },
+      { "text": "Il est trois heures et quart", "translation": "Четверть четвёртого", "gloss": [ { "w": "Il", "t": "(безличное)", "p": "иль" }, { "w": "est", "t": "есть", "p": "э" }, { "w": "trois", "t": "три", "p": "труа" }, { "w": "heures", "t": "часа", "p": "ёр" }, { "w": "et", "t": "и", "p": "э" }, { "w": "quart", "t": "четверть", "p": "кар" } ] },
+      { "text": "Il est dix heures moins le quart", "translation": "Без четверти десять", "gloss": [ { "w": "Il", "t": "(безличное)", "p": "иль" }, { "w": "est", "t": "есть", "p": "э" }, { "w": "dix", "t": "десять", "p": "дис" }, { "w": "heures", "t": "часов", "p": "ёр" }, { "w": "moins", "t": "без", "p": "муэн" }, { "w": "le", "t": "(артикль)", "p": "лё" }, { "w": "quart", "t": "четверти", "p": "кар" } ] },
+      { "text": "À quelle heure?", "translation": "В котором часу?", "gloss": [ { "w": "À", "t": "в", "p": "а" }, { "w": "quelle", "t": "котором", "p": "кель" }, { "w": "heure?", "t": "часу?", "p": "ёр?" } ] },
+      { "text": "À huit heures", "translation": "В восемь часов", "gloss": [ { "w": "À", "t": "в", "p": "а" }, { "w": "huit", "t": "восемь", "p": "юит" }, { "w": "heures", "t": "часов", "p": "ёр" } ] },
+      { "text": "Il est tard", "translation": "Уже поздно", "gloss": [ { "w": "Il", "t": "(безличное)", "p": "иль" }, { "w": "est", "t": "есть", "p": "э" }, { "w": "tard", "t": "поздно", "p": "тар" } ] },
+      { "text": "Il est tôt", "translation": "Ещё рано", "gloss": [ { "w": "Il", "t": "(безличное)", "p": "иль" }, { "w": "est", "t": "есть", "p": "э" }, { "w": "tôt", "t": "рано", "p": "то" } ] }
+    ]
+  },
+  {
+    "level": "A1",
+    "pattern": "Les jours de la semaine — дни",
+    "tense": "present",
+    "sentences": [
+      { "text": "lundi", "translation": "понедельник", "gloss": [ { "w": "lundi", "t": "понедельник", "p": "лёнди" } ] },
+      { "text": "mardi", "translation": "вторник", "gloss": [ { "w": "mardi", "t": "вторник", "p": "марди" } ] },
+      { "text": "mercredi", "translation": "среда", "gloss": [ { "w": "mercredi", "t": "среда", "p": "меркрёди" } ] },
+      { "text": "jeudi", "translation": "четверг", "gloss": [ { "w": "jeudi", "t": "четверг", "p": "жёди" } ] },
+      { "text": "vendredi", "translation": "пятница", "gloss": [ { "w": "vendredi", "t": "пятница", "p": "вандрёди" } ] },
+      { "text": "samedi", "translation": "суббота", "gloss": [ { "w": "samedi", "t": "суббота", "p": "самди" } ] },
+      { "text": "dimanche", "translation": "воскресенье", "gloss": [ { "w": "dimanche", "t": "воскресенье", "p": "диманш" } ] },
+      { "text": "Aujourd'hui c'est lundi", "translation": "Сегодня понедельник", "gloss": [ { "w": "Aujourd'hui", "t": "сегодня", "p": "ожурдюи" }, { "w": "c'est", "t": "это", "p": "сэ" }, { "w": "lundi", "t": "понедельник", "p": "лёнди" } ] },
+      { "text": "On est quel jour?", "translation": "Какой сегодня день?", "gloss": [ { "w": "On", "t": "(мы)", "p": "он" }, { "w": "est", "t": "есть", "p": "э" }, { "w": "quel", "t": "какой", "p": "кель" }, { "w": "jour?", "t": "день?", "p": "жур?" } ] },
+      { "text": "On est mercredi", "translation": "Сегодня среда", "gloss": [ { "w": "On", "t": "(мы)", "p": "он" }, { "w": "est", "t": "есть", "p": "э" }, { "w": "mercredi", "t": "среда", "p": "меркрёди" } ] },
+      { "text": "Demain c'est samedi", "translation": "Завтра суббота", "gloss": [ { "w": "Demain", "t": "завтра", "p": "дёмэн" }, { "w": "c'est", "t": "это", "p": "сэ" }, { "w": "samedi", "t": "суббота", "p": "самди" } ] },
+      { "text": "Le week-end", "translation": "Выходные", "gloss": [ { "w": "Le", "t": "(артикль)", "p": "лё" }, { "w": "week-end", "t": "выходные", "p": "уикенд" } ] },
+      { "text": "À demain", "translation": "До завтра", "gloss": [ { "w": "À", "t": "до", "p": "а" }, { "w": "demain", "t": "завтра", "p": "дёмэн" } ] }
+    ]
+  },
+  {
+    "level": "A1",
+    "pattern": "Les mois et la date — месяцы и дата",
+    "tense": "present",
+    "sentences": [
+      { "text": "janvier", "translation": "январь", "gloss": [ { "w": "janvier", "t": "январь", "p": "жанвье" } ] },
+      { "text": "février", "translation": "февраль", "gloss": [ { "w": "février", "t": "февраль", "p": "феврье" } ] },
+      { "text": "mars", "translation": "март", "gloss": [ { "w": "mars", "t": "март", "p": "марс" } ] },
+      { "text": "avril", "translation": "апрель", "gloss": [ { "w": "avril", "t": "апрель", "p": "авриль" } ] },
+      { "text": "mai", "translation": "май", "gloss": [ { "w": "mai", "t": "май", "p": "мэ" } ] },
+      { "text": "juin", "translation": "июнь", "gloss": [ { "w": "juin", "t": "июнь", "p": "жюэн" } ] },
+      { "text": "Quelle est la date?", "translation": "Какое сегодня число?", "gloss": [ { "w": "Quelle", "t": "какая", "p": "кель" }, { "w": "est", "t": "есть", "p": "э" }, { "w": "la", "t": "(артикль)", "p": "ла" }, { "w": "date?", "t": "дата?", "p": "дат?" } ] },
+      { "text": "C'est le cinq mai", "translation": "Сегодня пятое мая", "gloss": [ { "w": "C'est", "t": "это", "p": "сэ" }, { "w": "le", "t": "(артикль)", "p": "лё" }, { "w": "cinq", "t": "пять", "p": "сэнк" }, { "w": "mai", "t": "мая", "p": "мэ" } ] },
+      { "text": "Nous sommes le premier juin", "translation": "Сегодня первое июня", "gloss": [ { "w": "Nous", "t": "мы", "p": "ну" }, { "w": "sommes", "t": "(есть)", "p": "сом" }, { "w": "le", "t": "(артикль)", "p": "лё" }, { "w": "premier", "t": "первое", "p": "прёмье" }, { "w": "juin", "t": "июня", "p": "жюэн" } ] },
+      { "text": "Mon anniversaire est en juin", "translation": "Мой день рождения в июне", "gloss": [ { "w": "Mon", "t": "мой", "p": "мон" }, { "w": "anniversaire", "t": "день рождения", "p": "анивэрсэр" }, { "w": "est", "t": "есть", "p": "э" }, { "w": "en", "t": "в", "p": "ан" }, { "w": "juin", "t": "июне", "p": "жюэн" } ] },
+      { "text": "En quel mois?", "translation": "В каком месяце?", "gloss": [ { "w": "En", "t": "в", "p": "ан" }, { "w": "quel", "t": "каком", "p": "кель" }, { "w": "mois?", "t": "месяце?", "p": "муа?" } ] },
+      { "text": "Au mois de décembre", "translation": "В декабре", "gloss": [ { "w": "Au", "t": "в", "p": "о" }, { "w": "mois", "t": "месяце", "p": "муа" }, { "w": "de", "t": "(предлог)", "p": "дё" }, { "w": "décembre", "t": "декабря", "p": "десанбр" } ] },
+      { "text": "Bon anniversaire", "translation": "С днём рождения", "gloss": [ { "w": "Bon", "t": "хорошего", "p": "бон" }, { "w": "anniversaire", "t": "дня рождения", "p": "анивэрсэр" } ] }
+    ]
+  }
+]

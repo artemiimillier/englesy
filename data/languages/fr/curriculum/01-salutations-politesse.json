@@ -1,0 +1,61 @@
+[
+  {
+    "level": "A1",
+    "pattern": "Bonjour ! — приветствие и прощание",
+    "tense": "present",
+    "sentences": [
+      { "text": "Bonjour", "translation": "Здравствуйте", "gloss": [ { "w": "Bonjour", "t": "здравствуйте", "p": "бонжур" } ] },
+      { "text": "Bonjour madame", "translation": "Здравствуйте, мадам", "gloss": [ { "w": "Bonjour", "t": "здравствуйте", "p": "бонжур" }, { "w": "madame", "t": "мадам", "p": "мадам" } ] },
+      { "text": "Bonjour monsieur", "translation": "Здравствуйте, месье", "gloss": [ { "w": "Bonjour", "t": "здравствуйте", "p": "бонжур" }, { "w": "monsieur", "t": "месье", "p": "мёсьё" } ] },
+      { "text": "Salut", "translation": "Привет", "gloss": [ { "w": "Salut", "t": "привет", "p": "салю" } ] },
+      { "text": "Bonsoir", "translation": "Добрый вечер", "gloss": [ { "w": "Bonsoir", "t": "добрый вечер", "p": "бонсуар" } ] },
+      { "text": "Bonne nuit", "translation": "Спокойной ночи", "gloss": [ { "w": "Bonne", "t": "доброй", "p": "бон" }, { "w": "nuit", "t": "ночи", "p": "нюи" } ] },
+      { "text": "Au revoir", "translation": "До свидания", "gloss": [ { "w": "Au", "t": "до", "p": "о" }, { "w": "revoir", "t": "свидания", "p": "рёвуар" } ] },
+      { "text": "À bientôt", "translation": "До скорого", "gloss": [ { "w": "À", "t": "до", "p": "а" }, { "w": "bientôt", "t": "скорого", "p": "бьенто" } ] },
+      { "text": "À demain", "translation": "До завтра", "gloss": [ { "w": "À", "t": "до", "p": "а" }, { "w": "demain", "t": "завтра", "p": "дёмэн" } ] },
+      { "text": "À tout à l'heure", "translation": "До скорого (сегодня)", "gloss": [ { "w": "À", "t": "до", "p": "а" }, { "w": "tout", "t": "совсем", "p": "ту" }, { "w": "à", "t": "(предлог)", "p": "а" }, { "w": "l'heure", "t": "скоро", "p": "лёр" } ] },
+      { "text": "Bonne journée", "translation": "Хорошего дня", "gloss": [ { "w": "Bonne", "t": "хорошего", "p": "бон" }, { "w": "journée", "t": "дня", "p": "журне" } ] },
+      { "text": "Merci, au revoir", "translation": "Спасибо, до свидания", "gloss": [ { "w": "Merci,", "t": "спасибо,", "p": "мерси," }, { "w": "au", "t": "до", "p": "о" }, { "w": "revoir", "t": "свидания", "p": "рёвуар" } ] }
+    ]
+  },
+  {
+    "level": "A1",
+    "pattern": "Comment ça va ? — как дела",
+    "tense": "present",
+    "sentences": [
+      { "text": "Comment ça va?", "translation": "Как дела?", "gloss": [ { "w": "Comment", "t": "как", "p": "коман" }, { "w": "ça", "t": "(дела)", "p": "са" }, { "w": "va?", "t": "идут?", "p": "ва?" } ] },
+      { "text": "Ça va bien", "translation": "Всё хорошо", "gloss": [ { "w": "Ça", "t": "(дела)", "p": "са" }, { "w": "va", "t": "идут", "p": "ва" }, { "w": "bien", "t": "хорошо", "p": "бьен" } ] },
+      { "text": "Ça va très bien", "translation": "Очень хорошо", "gloss": [ { "w": "Ça", "t": "(дела)", "p": "са" }, { "w": "va", "t": "идут", "p": "ва" }, { "w": "très", "t": "очень", "p": "трэ" }, { "w": "bien", "t": "хорошо", "p": "бьен" } ] },
+      { "text": "Ça va, merci", "translation": "Хорошо, спасибо", "gloss": [ { "w": "Ça", "t": "(дела)", "p": "са" }, { "w": "va,", "t": "идут,", "p": "ва," }, { "w": "merci", "t": "спасибо", "p": "мерси" } ] },
+      { "text": "Comment allez-vous?", "translation": "Как вы поживаете?", "gloss": [ { "w": "Comment", "t": "как", "p": "коман" }, { "w": "allez-vous?", "t": "вы поживаете?", "p": "але-ву?" } ] },
+      { "text": "Je vais bien", "translation": "У меня всё хорошо", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "vais", "t": "чувствую себя", "p": "вэ" }, { "w": "bien", "t": "хорошо", "p": "бьен" } ] },
+      { "text": "Je vais bien, merci", "translation": "Хорошо, спасибо", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "vais", "t": "чувствую себя", "p": "вэ" }, { "w": "bien,", "t": "хорошо,", "p": "бьен," }, { "w": "merci", "t": "спасибо", "p": "мерси" } ] },
+      { "text": "Et toi?", "translation": "А ты?", "gloss": [ { "w": "Et", "t": "а", "p": "э" }, { "w": "toi?", "t": "ты?", "p": "туа?" } ] },
+      { "text": "Et vous?", "translation": "А вы?", "gloss": [ { "w": "Et", "t": "а", "p": "э" }, { "w": "vous?", "t": "вы?", "p": "ву?" } ] },
+      { "text": "Pas mal", "translation": "Неплохо", "gloss": [ { "w": "Pas", "t": "не", "p": "па" }, { "w": "mal", "t": "плохо", "p": "маль" } ] },
+      { "text": "Comme ci comme ça", "translation": "Так себе", "gloss": [ { "w": "Comme", "t": "как", "p": "ком" }, { "w": "ci", "t": "это", "p": "си" }, { "w": "comme", "t": "как", "p": "ком" }, { "w": "ça", "t": "то", "p": "са" } ] },
+      { "text": "Je suis fatigué", "translation": "Я устал", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "suis", "t": "есть", "p": "сюи" }, { "w": "fatigué", "t": "уставший", "p": "фатиге" } ] },
+      { "text": "Très bien, et toi?", "translation": "Очень хорошо, а ты?", "gloss": [ { "w": "Très", "t": "очень", "p": "трэ" }, { "w": "bien,", "t": "хорошо,", "p": "бьен," }, { "w": "et", "t": "а", "p": "э" }, { "w": "toi?", "t": "ты?", "p": "туа?" } ] }
+    ]
+  },
+  {
+    "level": "A1",
+    "pattern": "Merci, s'il vous plaît — вежливость",
+    "tense": "present",
+    "sentences": [
+      { "text": "Merci", "translation": "Спасибо", "gloss": [ { "w": "Merci", "t": "спасибо", "p": "мерси" } ] },
+      { "text": "Merci beaucoup", "translation": "Большое спасибо", "gloss": [ { "w": "Merci", "t": "спасибо", "p": "мерси" }, { "w": "beaucoup", "t": "большое", "p": "боку" } ] },
+      { "text": "De rien", "translation": "Не за что", "gloss": [ { "w": "De", "t": "не", "p": "дё" }, { "w": "rien", "t": "за что", "p": "рьен" } ] },
+      { "text": "S'il vous plaît", "translation": "Пожалуйста", "gloss": [ { "w": "S'il", "t": "если", "p": "силь" }, { "w": "vous", "t": "вам", "p": "ву" }, { "w": "plaît", "t": "угодно", "p": "плэ" } ] },
+      { "text": "S'il te plaît", "translation": "Пожалуйста (тебе)", "gloss": [ { "w": "S'il", "t": "если", "p": "силь" }, { "w": "te", "t": "тебе", "p": "тё" }, { "w": "plaît", "t": "угодно", "p": "плэ" } ] },
+      { "text": "Oui, merci", "translation": "Да, спасибо", "gloss": [ { "w": "Oui,", "t": "да,", "p": "уи," }, { "w": "merci", "t": "спасибо", "p": "мерси" } ] },
+      { "text": "Non, merci", "translation": "Нет, спасибо", "gloss": [ { "w": "Non,", "t": "нет,", "p": "нон," }, { "w": "merci", "t": "спасибо", "p": "мерси" } ] },
+      { "text": "Pardon", "translation": "Извините", "gloss": [ { "w": "Pardon", "t": "извините", "p": "пардон" } ] },
+      { "text": "Excusez-moi", "translation": "Извините меня", "gloss": [ { "w": "Excusez-moi", "t": "извините меня", "p": "экскюзе-муа" } ] },
+      { "text": "Je suis désolé", "translation": "Мне очень жаль", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "suis", "t": "есть", "p": "сюи" }, { "w": "désolé", "t": "сожалею", "p": "дезоле" } ] },
+      { "text": "Pas de problème", "translation": "Без проблем", "gloss": [ { "w": "Pas", "t": "нет", "p": "па" }, { "w": "de", "t": "(предлог)", "p": "дё" }, { "w": "problème", "t": "проблемы", "p": "проблем" } ] },
+      { "text": "D'accord", "translation": "Договорились", "gloss": [ { "w": "D'accord", "t": "согласен", "p": "дакор" } ] },
+      { "text": "Avec plaisir", "translation": "С удовольствием", "gloss": [ { "w": "Avec", "t": "с", "p": "авек" }, { "w": "plaisir", "t": "удовольствием", "p": "плезир" } ] }
+    ]
+  }
+]

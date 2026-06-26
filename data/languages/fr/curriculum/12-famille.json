@@ -1,0 +1,42 @@
+[
+  {
+    "level": "A1",
+    "pattern": "Ma famille — члены семьи",
+    "tense": "present",
+    "sentences": [
+      { "text": "mon père", "translation": "мой отец", "gloss": [ { "w": "mon", "t": "мой", "p": "мон" }, { "w": "père", "t": "отец", "p": "пэр" } ] },
+      { "text": "ma mère", "translation": "моя мать", "gloss": [ { "w": "ma", "t": "моя", "p": "ма" }, { "w": "mère", "t": "мать", "p": "мэр" } ] },
+      { "text": "mon frère", "translation": "мой брат", "gloss": [ { "w": "mon", "t": "мой", "p": "мон" }, { "w": "frère", "t": "брат", "p": "фрэр" } ] },
+      { "text": "ma sœur", "translation": "моя сестра", "gloss": [ { "w": "ma", "t": "моя", "p": "ма" }, { "w": "sœur", "t": "сестра", "p": "сёр" } ] },
+      { "text": "mes parents", "translation": "мои родители", "gloss": [ { "w": "mes", "t": "мои", "p": "мэ" }, { "w": "parents", "t": "родители", "p": "паран" } ] },
+      { "text": "mon mari", "translation": "мой муж", "gloss": [ { "w": "mon", "t": "мой", "p": "мон" }, { "w": "mari", "t": "муж", "p": "мари" } ] },
+      { "text": "ma femme", "translation": "моя жена", "gloss": [ { "w": "ma", "t": "моя", "p": "ма" }, { "w": "femme", "t": "жена", "p": "фам" } ] },
+      { "text": "mes enfants", "translation": "мои дети", "gloss": [ { "w": "mes", "t": "мои", "p": "мэ" }, { "w": "enfants", "t": "дети", "p": "анфан" } ] },
+      { "text": "mon fils", "translation": "мой сын", "gloss": [ { "w": "mon", "t": "мой", "p": "мон" }, { "w": "fils", "t": "сын", "p": "фис" } ] },
+      { "text": "ma fille", "translation": "моя дочь", "gloss": [ { "w": "ma", "t": "моя", "p": "ма" }, { "w": "fille", "t": "дочь", "p": "фий" } ] },
+      { "text": "J'ai deux frères", "translation": "У меня два брата", "gloss": [ { "w": "J'ai", "t": "у меня есть", "p": "жэ" }, { "w": "deux", "t": "два", "p": "дё" }, { "w": "frères", "t": "брата", "p": "фрэр" } ] },
+      { "text": "J'ai une sœur", "translation": "У меня есть сестра", "gloss": [ { "w": "J'ai", "t": "у меня есть", "p": "жэ" }, { "w": "une", "t": "одна", "p": "юн" }, { "w": "sœur", "t": "сестра", "p": "сёр" } ] },
+      { "text": "Je n'ai pas d'enfants", "translation": "У меня нет детей", "gloss": [ { "w": "Je", "t": "я", "p": "жё" }, { "w": "n'ai", "t": "не имею", "p": "нэ" }, { "w": "pas", "t": "(отрицание)", "p": "па" }, { "w": "d'enfants", "t": "детей", "p": "данфан" } ] }
+    ]
+  },
+  {
+    "level": "A1",
+    "pattern": "Voici... — представление родных",
+    "tense": "present",
+    "sentences": [
+      { "text": "Voici ma femme", "translation": "Вот моя жена", "gloss": [ { "w": "Voici", "t": "вот", "p": "вуаси" }, { "w": "ma", "t": "моя", "p": "ма" }, { "w": "femme", "t": "жена", "p": "фам" } ] },
+      { "text": "Voici mon mari", "translation": "Вот мой муж", "gloss": [ { "w": "Voici", "t": "вот", "p": "вуаси" }, { "w": "mon", "t": "мой", "p": "мон" }, { "w": "mari", "t": "муж", "p": "мари" } ] },
+      { "text": "C'est mon fils", "translation": "Это мой сын", "gloss": [ { "w": "C'est", "t": "это", "p": "сэ" }, { "w": "mon", "t": "мой", "p": "мон" }, { "w": "fils", "t": "сын", "p": "фис" } ] },
+      { "text": "C'est ma fille", "translation": "Это моя дочь", "gloss": [ { "w": "C'est", "t": "это", "p": "сэ" }, { "w": "ma", "t": "моя", "p": "ма" }, { "w": "fille", "t": "дочь", "p": "фий" } ] },
+      { "text": "Il s'appelle Paul", "translation": "Его зовут Поль", "gloss": [ { "w": "Il", "t": "он", "p": "иль" }, { "w": "s'appelle", "t": "зовётся", "p": "сапель" }, { "w": "Paul", "t": "Поль", "p": "поль" } ] },
+      { "text": "Elle s'appelle Marie", "translation": "Её зовут Мари", "gloss": [ { "w": "Elle", "t": "она", "p": "эль" }, { "w": "s'appelle", "t": "зовётся", "p": "сапель" }, { "w": "Marie", "t": "Мари", "p": "мари" } ] },
+      { "text": "Elle a cinq ans", "translation": "Ей пять лет", "gloss": [ { "w": "Elle", "t": "она", "p": "эль" }, { "w": "a", "t": "имеет", "p": "а" }, { "w": "cinq", "t": "пять", "p": "сэнк" }, { "w": "ans", "t": "лет", "p": "ан" } ] },
+      { "text": "Il a dix ans", "translation": "Ему десять лет", "gloss": [ { "w": "Il", "t": "он", "p": "иль" }, { "w": "a", "t": "имеет", "p": "а" }, { "w": "dix", "t": "десять", "p": "дис" }, { "w": "ans", "t": "лет", "p": "ан" } ] },
+      { "text": "C'est ma famille", "translation": "Это моя семья", "gloss": [ { "w": "C'est", "t": "это", "p": "сэ" }, { "w": "ma", "t": "моя", "p": "ма" }, { "w": "famille", "t": "семья", "p": "фамий" } ] },
+      { "text": "Voici mes parents", "translation": "Вот мои родители", "gloss": [ { "w": "Voici", "t": "вот", "p": "вуаси" }, { "w": "mes", "t": "мои", "p": "мэ" }, { "w": "parents", "t": "родители", "p": "паран" } ] },
+      { "text": "Ce sont mes enfants", "translation": "Это мои дети", "gloss": [ { "w": "Ce", "t": "это", "p": "сё" }, { "w": "sont", "t": "(есть)", "p": "сон" }, { "w": "mes", "t": "мои", "p": "мэ" }, { "w": "enfants", "t": "дети", "p": "анфан" } ] },
+      { "text": "Il est mignon", "translation": "Он милый", "gloss": [ { "w": "Il", "t": "он", "p": "иль" }, { "w": "est", "t": "есть", "p": "э" }, { "w": "mignon", "t": "милый", "p": "миньон" } ] },
+      { "text": "Elle est jeune", "translation": "Она молодая", "gloss": [ { "w": "Elle", "t": "она", "p": "эль" }, { "w": "est", "t": "есть", "p": "э" }, { "w": "jeune", "t": "молодая", "p": "жён" } ] }
+    ]
+  }
+]

@@ -5,13 +5,12 @@ const crypto = require("crypto");
 
 const ROOT = path.join(__dirname, "..");
 const CONFIG_PATH = path.join(ROOT, "config.json");
-const SENTENCES_PATH = path.join(ROOT, "data", "sentences.json");
-const PROGRESS_PATH = path.join(ROOT, "data", "progress.json");
+const LANG_DIR = path.join(ROOT, "data", "languages");
 const TTS_CACHE_DIR = path.join(ROOT, "data", "tts-cache");
 
 const DAY_MS = 86400000;
-const LEVELS = ["A2", "B1", "B2", "B2+"];
-const LEVEL_RANK = { A2: 1, B1: 2, B2: 3, "B2+": 4 };
+const LEVELS = ["A1", "A2", "B1", "B2", "B2+"];
+const LEVEL_RANK = { A1: 0, A2: 1, B1: 2, B2: 3, "B2+": 4 };
 const DEFAULT_TENSE_ROTATION = ["present", "past", "future", "present", "modal", "conditional", "perfect", "present"];
 const TENSE_BUCKET_LABELS = {
   present: "present",
@@ -25,8 +24,21 @@ const TENSE_BUCKET_LABELS = {
 
 let win = null;
 let tray = null;
-let timer = null;
-let nextRunAt = 0;
+const timers = {}; // lang -> timeout
+const nextRunAt = {}; // lang -> ts
+let currentSessionLang = "en"; // which language the visible session belongs to
+
+// ---------- Smoke test (no window): ENGLESY_SMOKE=fr node src/main.js ----------
+// Runs before any Electron API is touched; function declarations below are hoisted.
+if (process.env.ENGLESY_SMOKE) {
+  const lang = process.env.ENGLESY_SMOKE;
+  const s = buildSession(lang);
+  const st = statsSummary(lang);
+  console.log(`[smoke ${lang}] ${st.language.flag} ${st.language.label} · level ${st.level.current} · total ${st.total} · learned ${st.learned}`);
+  console.log(`[smoke ${lang}] session: ${s.sentences.length} sentences, focus="${s.focus ? s.focus.pattern : "—"}"`);
+  s.sentences.slice(0, 6).forEach((x, i) => console.log(`  ${i + 1}. ${x.text}  (${x.level}/${x.tenseBucket}${x.isNew ? ", NEW" : ""})`));
+  process.exit(0);
+}
 
 function readJson(p, fallback) {
   try {
@@ -36,13 +48,57 @@ function readJson(p, fallback) {
   }
 }
 
-function loadConfig() {
-  const cfg = readJson(CONFIG_PATH, {});
-  const t = cfg.tts || {};
-  const sc = cfg.schedule || {};
+// ---------- Per-language data paths (with legacy fallback) ----------
+function sentencesPathFor(lang) {
+  const p = path.join(LANG_DIR, lang, "sentences.json");
+  if (fs.existsSync(p)) return p;
+  return path.join(ROOT, "data", "sentences.json"); // legacy single-language layout
+}
+function progressPathFor(lang) {
+  const dir = path.join(LANG_DIR, lang);
+  if (fs.existsSync(dir)) return path.join(dir, "progress.json");
+  return path.join(ROOT, "data", "progress.json"); // legacy
+}
+
+// ---------- Config ----------
+function rawConfig() {
+  return readJson(CONFIG_PATH, {});
+}
+
+// The language registry drives scheduling and the tray. A language is listed only
+// when it is enabled and actually has data on disk.
+function languageRegistry() {
+  const cfg = rawConfig();
+  const langs = cfg.languages || { en: {} };
+  return Object.keys(langs)
+    .filter((code) => langs[code] && langs[code].enabled !== false)
+    .filter((code) => fs.existsSync(sentencesPathFor(code)))
+    .map((code) => ({
+      code,
+      label: langs[code].label || code.toUpperCase(),
+      flag: langs[code].flag || "",
+    }));
+}
+
+function activeLanguage() {
+  const cfg = rawConfig();
+  const reg = languageRegistry().map((l) => l.code);
+  if (cfg.activeLanguage && reg.includes(cfg.activeLanguage)) return cfg.activeLanguage;
+  return reg[0] || "en";
+}
+
+// Effective config for a given language: the language block overlays the globals,
+// so schedule / target level / tense rotation / voice are all per-language.
+function loadConfig(lang) {
+  const cfg = rawConfig();
+  const langs = cfg.languages || {};
+  const L = (lang && langs[lang]) || {};
+  const sc = L.schedule || cfg.schedule || {};
   const srs = cfg.srs || {};
   const drill = cfg.drill || {};
+  const t = { ...(cfg.tts || {}), ...(L.tts || {}) }; // per-language voiceId overrides global
   return {
+    lang: lang || cfg.activeLanguage || "en",
     schedule: {
       days: Array.isArray(sc.days) ? sc.days : [1, 2, 3, 4, 5],
       startHour: sc.startHour ?? 10,
@@ -54,8 +110,13 @@ function loadConfig() {
     popupOnStart: cfg.popupOnStart === true || process.env.ELECTRON_POPUP_ON_START === "1",
     drill: {
       repeatTarget: Number(drill.repeatTarget) || 10,
-      tenseRotation: Array.isArray(drill.tenseRotation) && drill.tenseRotation.length ? drill.tenseRotation : DEFAULT_TENSE_ROTATION,
-      targetLevel: drill.targetLevel || "B2",
+      tenseRotation:
+        Array.isArray(L.tenseRotation) && L.tenseRotation.length
+          ? L.tenseRotation
+          : Array.isArray(drill.tenseRotation) && drill.tenseRotation.length
+          ? drill.tenseRotation
+          : DEFAULT_TENSE_ROTATION,
+      targetLevel: L.targetLevel || drill.targetLevel || "B2",
     },
     srs: {
       enabled: srs.enabled !== false,
@@ -78,13 +139,15 @@ function loadConfig() {
   };
 }
 
-// ---------- Progress / SRS state ----------
-function loadProgress() {
-  return readJson(PROGRESS_PATH, { srs: {}, stats: { byDay: {}, totalDone: 0, totalSkipped: 0, streak: 0, lastDoneDate: null } });
+// ---------- Progress / SRS state (per language) ----------
+function loadProgress(lang) {
+  return readJson(progressPathFor(lang), { srs: {}, stats: { byDay: {}, totalDone: 0, totalSkipped: 0, streak: 0, lastDoneDate: null } });
 }
-function saveProgress(p) {
+function saveProgress(p, lang) {
   try {
-    fs.writeFileSync(PROGRESS_PATH, JSON.stringify(p, null, 2));
+    const dir = path.dirname(progressPathFor(lang));
+    fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(progressPathFor(lang), JSON.stringify(p, null, 2));
   } catch (e) {}
 }
 function dateStr(ts) {
@@ -103,12 +166,12 @@ function tenseBucket(tense = "", pattern = "") {
   return "present";
 }
 
-function flattenSentences() {
-  const data = readJson(SENTENCES_PATH, { groups: [] });
+function flattenSentences(lang) {
+  const data = readJson(sentencesPathFor(lang), { groups: [] });
   const groups = data.groups || [];
   const all = [];
   groups.forEach((g, gi) => {
-    const bucket = tenseBucket(g.tense, g.pattern);
+    const bucket = g.tenseBucket || tenseBucket(g.tense, g.pattern);
     (g.sentences || []).forEach((s, si) => {
       all.push({
         id: `${gi}:${si}`,
@@ -179,11 +242,11 @@ function currentLevel(all, srs) {
 }
 
 function targetLevelRank(cfg) {
-  return LEVEL_RANK[cfg.drill.targetLevel] || LEVEL_RANK.B2;
+  return LEVEL_RANK[cfg.drill.targetLevel] ?? LEVEL_RANK.B2;
 }
 
 function eligibleForTarget(s, cfg) {
-  return (LEVEL_RANK[s.level] || LEVEL_RANK.A2) <= targetLevelRank(cfg);
+  return (LEVEL_RANK[s.level] ?? LEVEL_RANK.A2) <= targetLevelRank(cfg);
 }
 
 function oldestSeenFirst(srs) {
@@ -242,11 +305,11 @@ function sortDueFirst(srs) {
 }
 
 // Build a session: 10 items when available, anchored to a construction and a time bucket.
-function buildSession() {
-  const cfg = loadConfig();
-  const all = flattenSentences();
+function buildSession(lang) {
+  const cfg = loadConfig(lang);
+  const all = flattenSentences(lang);
   const eligible = all.filter((s) => eligibleForTarget(s, cfg));
-  const prog = loadProgress();
+  const prog = loadProgress(lang);
   const srs = prog.srs || {};
   const now = Date.now();
   const N = cfg.sentencesPerRun;
@@ -308,10 +371,10 @@ function buildSession() {
   };
 }
 
-function recordResult(id, grade) {
-  const cfg = loadConfig();
+function recordResult(lang, id, grade) {
+  const cfg = loadConfig(lang);
   const intervals = cfg.srs.intervalsDays;
-  const prog = loadProgress();
+  const prog = loadProgress(lang);
   prog.srs = prog.srs || {};
   prog.stats = prog.stats || { byDay: {}, totalDone: 0, totalSkipped: 0, streak: 0, lastDoneDate: null };
   const now = Date.now();
@@ -341,18 +404,18 @@ function recordResult(id, grade) {
     prog.stats.byDay[d].skipped++;
     prog.stats.totalSkipped++;
   }
-  saveProgress(prog);
+  saveProgress(prog, lang);
 }
 
-function slotsPerDay() {
-  const s = loadConfig().schedule;
+function slotsPerDay(lang) {
+  const s = loadConfig(lang).schedule;
   return Math.max(1, Math.floor(((s.endHour - s.startHour) * 60) / s.everyMinutes) + 1);
 }
 
-function statsSummary() {
-  const cfg = loadConfig();
-  const prog = loadProgress();
-  const all = flattenSentences();
+function statsSummary(lang) {
+  const cfg = loadConfig(lang);
+  const prog = loadProgress(lang);
+  const all = flattenSentences(lang);
   const now = Date.now();
   const srs = prog.srs || {};
   const learned = Object.keys(srs).length;
@@ -369,13 +432,13 @@ function statsSummary() {
     if (srs[s.id]) perLevel[l].learned++;
   });
   const presentLevels = LEVELS.filter((l) => perLevel[l].total > 0);
-  let current = presentLevels.find((l) => perLevel[l].learned < perLevel[l].total) || presentLevels[presentLevels.length - 1];
+  let current = presentLevels.find((l) => perLevel[l].learned < perLevel[l].total) || presentLevels[presentLevels.length - 1] || "A1";
   const cl = perLevel[current];
   const ci = presentLevels.indexOf(current);
   const nextLevel = ci >= 0 && ci < presentLevels.length - 1 ? presentLevels[ci + 1] : null;
   const levelRemaining = Math.max(0, cl.total - cl.learned);
   const levelPct = cl.total ? Math.round((cl.learned / cl.total) * 100) : 100;
-  const newPerDay = Math.max(cfg.sentencesPerRun, cfg.srs.newPerSession || 1) * slotsPerDay();
+  const newPerDay = Math.max(cfg.sentencesPerRun, cfg.srs.newPerSession || 1) * slotsPerDay(lang);
   const daysToNext = newPerDay > 0 ? Math.ceil(levelRemaining / newPerDay) : null;
 
   // Timing.
@@ -383,7 +446,10 @@ function statsSummary() {
   const avgSessionMs = tm.sessions ? Math.round(tm.totalMs / tm.sessions) : 0;
   const avgPerSentenceMs = tm.totalSentences ? Math.round(tm.totalMs / tm.totalSentences) : 0;
 
+  const reg = languageRegistry().find((l) => l.code === lang) || { code: lang, label: lang.toUpperCase(), flag: "" };
+
   return {
+    language: { code: lang, label: reg.label, flag: reg.flag },
     streak: (prog.stats && prog.stats.streak) || 0,
     learned,
     total: all.length,
@@ -398,8 +464,8 @@ function statsSummary() {
 }
 
 // ---------- ElevenLabs TTS ----------
-async function getAudioDataUrl(text) {
-  const cfg = loadConfig();
+async function getAudioDataUrl(text, lang) {
+  const cfg = loadConfig(lang);
   const t = cfg.tts;
   if (!t.enabled) return null;
 
@@ -470,7 +536,8 @@ function createWindow() {
   });
 }
 
-function showPopup() {
+function showPopup(lang) {
+  currentSessionLang = lang || activeLanguage();
   if (!win) createWindow();
   win.webContents.send("start-session");
   win.show();
@@ -479,8 +546,8 @@ function showPopup() {
 }
 
 // Next scheduled slot: a day in schedule.days, time stepping by everyMinutes from startHour..endHour.
-function nextSlot(fromTs) {
-  const cfg = loadConfig().schedule;
+function nextSlot(fromTs, schedule) {
+  const cfg = schedule;
   const from = new Date(fromTs);
   for (let dayOffset = 0; dayOffset < 8; dayOffset++) {
     const base = new Date(from.getFullYear(), from.getMonth(), from.getDate() + dayOffset, 0, 0, 0, 0);
@@ -495,16 +562,30 @@ function nextSlot(fromTs) {
   return fromTs + DAY_MS; // fallback
 }
 
-function scheduleNext() {
-  if (timer) clearTimeout(timer);
-  nextRunAt = nextSlot(Date.now());
-  const delay = Math.max(1000, nextRunAt - Date.now());
+// Each language runs on its OWN independent timer so they pop up on separate cadences.
+function scheduleLang(lang) {
+  if (timers[lang]) clearTimeout(timers[lang]);
+  const schedule = loadConfig(lang).schedule;
+  nextRunAt[lang] = nextSlot(Date.now(), schedule);
+  const delay = Math.max(1000, nextRunAt[lang] - Date.now());
   // setTimeout caps around 24.8 days; our delays are always < 8 days, safe.
-  timer = setTimeout(() => {
-    showPopup();
-    scheduleNext();
+  timers[lang] = setTimeout(() => {
+    showPopup(lang);
+    scheduleLang(lang);
   }, delay);
   updateTray();
+}
+
+function scheduleAll() {
+  // Drop timers for languages no longer enabled.
+  for (const code of Object.keys(timers)) {
+    if (!languageRegistry().some((l) => l.code === code)) {
+      clearTimeout(timers[code]);
+      delete timers[code];
+      delete nextRunAt[code];
+    }
+  }
+  for (const { code } of languageRegistry()) scheduleLang(code);
 }
 
 function fmtWhen(ts) {
@@ -517,47 +598,55 @@ function fmtWhen(ts) {
 
 function updateTray() {
   if (!tray) return;
-  const st = statsSummary();
-  const menu = Menu.buildFromTemplate([
-    { label: nextRunAt ? `Следующее окно: ${fmtWhen(nextRunAt)}` : "Запуск…", enabled: false },
-    { label: `🔥 серия: ${st.streak} дн.  •  выучено ${st.learned}/${st.total}`, enabled: false },
-    { type: "separator" },
-    { label: "Практика сейчас", click: () => showPopup() },
-    { label: "Сбросить таймер", click: () => scheduleNext() },
-    { type: "separator" },
-    { label: "Выход", click: () => { app.isQuitting = true; app.quit(); } },
-  ]);
-  tray.setContextMenu(menu);
-  tray.setToolTip(`ENGLESY — серия ${st.streak} дн., выучено ${st.learned}/${st.total}`);
+  const reg = languageRegistry();
+  const items = [];
+  for (const { code, label, flag } of reg) {
+    const st = statsSummary(code);
+    items.push({ label: `${flag} ${label} — следующее: ${nextRunAt[code] ? fmtWhen(nextRunAt[code]) : "…"}`, enabled: false });
+    items.push({ label: `   🔥 ${st.streak} дн.  •  ${st.level.current}  •  выучено ${st.learned}/${st.total}`, enabled: false });
+  }
+  items.push({ type: "separator" });
+  items.push({
+    label: "Практика сейчас",
+    submenu: reg.map(({ code, label, flag }) => ({ label: `${flag} ${label}`, click: () => showPopup(code) })),
+  });
+  items.push({ label: "Сбросить таймеры", click: () => scheduleAll() });
+  items.push({ type: "separator" });
+  items.push({ label: "Выход", click: () => { app.isQuitting = true; app.quit(); } });
+
+  tray.setContextMenu(Menu.buildFromTemplate(items));
+  tray.setToolTip(`ENGLESY — ${reg.map((l) => `${l.flag} ${statsSummary(l.code).streak}д`).join("  ")}`);
 }
 
 function createTray() {
   tray = new Tray(nativeImage.createEmpty());
-  tray.setTitle("🇬🇧");
+  tray.setTitle(languageRegistry().map((l) => l.flag).join("") || "🌐");
   updateTray();
 }
 
 // ---------- IPC ----------
 ipcMain.handle("get-data", () => {
-  const cfg = loadConfig();
-  return { config: cfg, session: buildSession(), stats: statsSummary() };
+  const lang = currentSessionLang;
+  const cfg = loadConfig(lang);
+  return { config: cfg, session: buildSession(lang), stats: statsSummary(lang) };
 });
 
 ipcMain.handle("get-audio", async (_e, text) => {
   try {
-    return { ok: true, dataUrl: await getAudioDataUrl(text) };
+    return { ok: true, dataUrl: await getAudioDataUrl(text, currentSessionLang) };
   } catch (e) {
     return { ok: false, error: String(e.message || e) };
   }
 });
 
 ipcMain.on("record-result", (_e, id, grade) => {
-  recordResult(id, grade);
+  recordResult(currentSessionLang, id, grade);
   updateTray();
 });
 
 ipcMain.handle("finish-session", (_e, durationMs, count) => {
-  const prog = loadProgress();
+  const lang = currentSessionLang;
+  const prog = loadProgress(lang);
   prog.stats = prog.stats || { byDay: {}, totalDone: 0, totalSkipped: 0, streak: 0, lastDoneDate: null };
   const tm = prog.stats.timing || { totalMs: 0, sessions: 0, totalSentences: 0 };
   tm.totalMs += Math.max(0, Number(durationMs) || 0);
@@ -565,9 +654,9 @@ ipcMain.handle("finish-session", (_e, durationMs, count) => {
   tm.totalSentences += Math.max(0, Number(count) || 0);
   prog.stats.timing = tm;
   prog.stats.lastSession = { durationMs: Number(durationMs) || 0, count: Number(count) || 0, at: Date.now() };
-  saveProgress(prog);
+  saveProgress(prog, lang);
   updateTray();
-  return statsSummary();
+  return statsSummary(lang);
 });
 
 ipcMain.on("session-done", () => {
@@ -579,12 +668,20 @@ ipcMain.on("close-window", () => {
 });
 
 // ---------- Boot ----------
-app.whenReady().then(() => {
-  if (app.dock) app.dock.hide();
-  createWindow();
-  createTray();
-  if (loadConfig().popupOnStart) setTimeout(showPopup, 600);
-  scheduleNext();
-});
+// Single instance: double-clicking the icon (or login auto-start firing twice) must
+// not spawn a second tray. A second launch just opens a practice session instead.
+if (!app.requestSingleInstanceLock()) {
+  app.quit();
+} else {
+  app.on("second-instance", () => showPopup(activeLanguage()));
+  app.whenReady().then(() => {
+    if (app.dock) app.dock.hide();
+    currentSessionLang = activeLanguage();
+    createWindow();
+    createTray();
+    if (loadConfig().popupOnStart) setTimeout(() => showPopup(activeLanguage()), 600);
+    scheduleAll();
+  });
+}
 
 app.on("window-all-closed", () => {});

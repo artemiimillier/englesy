@@ -1,0 +1,28 @@
+{
+  "name": "ENGLESY",
+  "short_name": "ENGLESY",
+  "description": "Spaced-repetition language trainer with camera gestures, voice tracking, and a premium HUD. Drill real curriculum sentences word by word, offline.",
+  "lang": "ru",
+  "dir": "ltr",
+  "display": "standalone",
+  "orientation": "any",
+  "start_url": "/",
+  "scope": "/",
+  "background_color": "#07080c",
+  "theme_color": "#07080c",
+  "categories": ["education", "productivity"],
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "maskable"
+    }
+  ]
+}

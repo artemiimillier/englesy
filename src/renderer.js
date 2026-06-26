@@ -1,5 +1,9 @@
 // ---------- DOM ----------
 const el = {
+  langBadge: document.getElementById("lang-badge"),
+  phonetic: document.getElementById("phonetic"),
+  bigwordPhon: document.getElementById("bigword-phon"),
+  repeatPhon: document.getElementById("repeat-phon"),
   pattern: document.getElementById("pattern"),
   progress: document.getElementById("progress"),
   stats: document.getElementById("stats"),
@@ -34,6 +38,7 @@ let si = 0;
 let wi = 0;
 let words = [];
 let glossArr = [];
+let phonArr = []; // Russian-letter reading per word (French); empty for languages without transcription
 let phase = "idle"; // idle | words | repeat | done
 let repeatCount = 0;
 let REPEAT_TARGET = 10;
@@ -102,6 +107,10 @@ async function startSession() {
 
 function renderStats() {
   if (!stats) return;
+  if (stats.language && el.langBadge) {
+    el.langBadge.textContent = `${stats.language.flag || ""} ${stats.language.label || ""}`.trim();
+    el.langBadge.title = `Язык сессии: ${stats.language.label || stats.language.code}`;
+  }
   el.stats.textContent = `🔥 ${stats.streak}`;
   el.stats.title = `Серия: ${stats.streak} дн. · Выучено ${stats.learned} из ${stats.total} · Сегодня: ${stats.todayDone} сделано, ${stats.todaySkipped} пропущено` +
     (stats.timing && stats.timing.sessions ? ` · среднее ${fmtClock(stats.timing.avgSessionMs)}/сессия` : "");
@@ -121,12 +130,22 @@ function startSentence() {
   const s = session.sentences[si];
   words = splitWords(s);
   glossArr = s.gloss || [];
+  phonArr = glossArr.map((g) => (g && g.p) || "");
+  const hasPhon = phonArr.some((x) => x);
   wi = 0;
   const tense = s.tenseLabel || s.tenseBucket || s.tense || "present";
   el.pattern.innerHTML = `<span class="tense-badge">${escapeHtml(s.level || "")} · ${escapeHtml(tense)}</span> ${escapeHtml(s.pattern || "")}` +
     (s.isNew ? ` <span class="new-badge">НОВОЕ</span>` : "");
   el.progress.textContent = `${si + 1} / ${session.sentences.length}`;
   el.translation.textContent = s.translation || "";
+  // Always-visible pronunciation "subtitles" (Russian letters) — only for languages that have it.
+  if (hasPhon) {
+    el.phonetic.textContent = phonArr.join(" ");
+    el.phonetic.classList.remove("hidden");
+  } else {
+    el.phonetic.textContent = "";
+    el.phonetic.classList.add("hidden");
+  }
   el.repeat.classList.add("hidden");
   el.hands.style.display = "flex";
   el.bigword.style.display = "";
@@ -158,6 +177,8 @@ function renderSentence() {
 function showWord() {
   const chunk = words.slice(0, wi + 1).join(" ");
   el.bigword.textContent = chunk;
+  // Reading of the current cumulative chunk, right under the big word.
+  el.bigwordPhon.textContent = phonArr.slice(0, wi + 1).filter((x) => x).join(" ");
   el.bigword.classList.remove("hit");
   el.bigword.classList.remove("pop");
   void el.bigword.offsetWidth;
@@ -184,6 +205,7 @@ function enterRepeat() {
   el.bigword.style.display = "none";
   el.repeat.classList.remove("hidden");
   el.repeatPhrase.textContent = session.sentences[si].text;
+  el.repeatPhon.textContent = phonArr.some((x) => x) ? phonArr.filter((x) => x).join(" ") : "";
   renderDots();
 }
 

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="theme-color" content="#07080c" />
+  <title>ENGLESY — Жесты · Голос · Английский</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===== ICON SPRITE ===== -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="gem-grad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#b39bff" />
+        <stop offset="50%" stop-color="#ff9ec9" />
+        <stop offset="100%" stop-color="#79e0a6" />
+      </linearGradient>
+    </defs>
+    <symbol id="i-mark" viewBox="0 0 24 24">
+      <path d="M12 2L21 7v10l-9 5-9-5V7l9-5z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+      <path d="M12 2v20M3 7l9 5 9-5" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.55"/>
+    </symbol>
+    <symbol id="i-gem" viewBox="0 0 24 24">
+      <path d="M12 2L21 7v10l-9 5-9-5V7l9-5z" fill="url(#gem-grad)" opacity="0.92"/>
+      <path d="M12 2v20M3 7l9 5 9-5" fill="none" stroke="#0a0c12" stroke-width="1" opacity="0.5"/>
+    </symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></symbol>
+    <symbol id="i-hand" viewBox="0 0 24 24"><path d="M7 11V6a1.5 1.5 0 013 0v4m0 0V4.5a1.5 1.5 0 013 0V10m0 0V6a1.5 1.5 0 013 0v6.5c0 4-2.5 7-6.5 7S7 17 7 14.5V12l-2-2a1.4 1.4 0 012-2l1 1" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-voice" viewBox="0 0 24 24"><path d="M4 10v4M8 6v12M12 3v18M16 7v10M20 10v4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5 9-5zM3 13l9 5 9-5M3 17l9 5 9-5" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-cross" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 2c1 3-1 4.5-2.5 6S7 11.5 7 14a5 5 0 0010 0c0-2-1-3.5-2-5-0.6 1.2-1.6 1.6-2.4 1-1-0.8 0.4-2.6-.6-8z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M12 7v5l3.5 2" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></symbol>
+    <symbol id="i-replay" viewBox="0 0 24 24"><path d="M4 12a8 8 0 108-8M4 12V6m0 6h6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-skip" viewBox="0 0 24 24"><path d="M5 5v14l9-7zM18 5v14" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-swap" viewBox="0 0 24 24"><path d="M7 8h13l-3-3M17 16H4l3 3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </svg>
+
+  <!-- ===== BACKGROUND ===== -->
+  <div class="bg-aurora" aria-hidden="true"></div>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-noise" aria-hidden="true"></div>
+
+  <div id="app">
+
+    <!-- =========================================================
+         START OVERLAY  ·  landing hero
+         ========================================================= -->
+    <div id="start-overlay">
+      <div class="landing">
+
+        <header class="nav">
+          <div class="logo">
+            <svg class="logo-mark"><use href="#i-mark"/></svg>
+            <span class="logo-word">ENGLESY</span>
+          </div>
+          <div class="nav-tag mono">[ ЖЕСТЫ · ГОЛОС · ЯЗЫК ]</div>
+        </header>
+
+        <section class="hero">
+          <div class="eyebrow mono">НЕЙРО-ТРЕНАЖЁР ЖИВОЙ РЕЧИ</div>
+          <h1 class="hero-title">Говори свободно<br><span class="muted">руками и голосом</span></h1>
+          <p class="hero-sub">ENGLESY считывает твои <b>жесты</b> и <b>речь</b> и собирает фразу
+            слово за словом. Интервальные повторения, активная память и моторика — вместо зубрёжки.</p>
+
+          <!-- language picker -->
+          <div id="lang-picker" class="lang-picker" role="group" aria-label="Язык обучения"></div>
+
+          <div class="cta-row">
+            <button id="start-btn" class="btn btn-primary" type="button">
+              <svg class="btn-ico"><use href="#i-play"/></svg>
+              <span>НАЧАТЬ ТРЕНИРОВКУ</span>
+            </button>
+            <a href="#method" class="btn btn-ghost">
+              <svg class="btn-ico"><use href="#i-arrow"/></svg>
+              <span>КАК ЭТО РАБОТАЕТ</span>
+            </a>
+          </div>
+
+          <p class="cta-foot mono">От первого слова до целой фразы — твой язык, без перегруза.</p>
+        </section>
+
+        <section class="trust">
+          <div class="trust-label mono">НА СВОБОДНЫХ · ОТКРЫТЫХ ТЕХНОЛОГИЯХ</div>
+          <div class="trust-logos">
+            <span>MediaPipe</span><span>Web&nbsp;Speech</span><span>ElevenLabs</span><span>Spaced&nbsp;Repetition</span><span>WebGL</span>
+          </div>
+        </section>
+
+        <!-- comparison -->
+        <section id="method" class="compare">
+          <div class="compare-card compare-old">
+            <div class="card-tag mono">[ СТАРЫЙ ПОДХОД · ЗУБРЁЖКА ]</div>
+            <div class="scatter" aria-hidden="true">
+              <span class="chip c1">📕</span><span class="chip c2">✎</span>
+              <span class="chip c3">⏱</span><span class="chip c4">😵</span>
+              <span class="chip c5">💤</span>
+            </div>
+            <h3 class="card-title">Кажется лёгким. К утру — забыто.</h3>
+            <div class="bad-row">
+              <span class="tag-bad"><svg><use href="#i-cross"/></svg> Без речи</span>
+              <span class="tag-bad"><svg><use href="#i-cross"/></svg> Без обратной связи</span>
+              <span class="tag-bad"><svg><use href="#i-cross"/></svg> Пассивно</span>
+            </div>
+          </div>
+
+          <div class="compare-card compare-new">
+            <div class="card-tag mono">[ ENGLESY · МЕТОД ]</div>
+            <div class="feature-grid">
+              <div class="feat">
+                <svg class="feat-ico"><use href="#i-hand"/></svg>
+                <div class="feat-text"><b>Жесты</b><span>Связь рука–глаз</span></div>
+              </div>
+              <div class="feat">
+                <svg class="feat-ico"><use href="#i-voice"/></svg>
+                <div class="feat-text"><b>Трекинг речи</b><span>Реальное произношение</span></div>
+              </div>
+              <div class="grid-node"><svg class="node-gem"><use href="#i-gem"/></svg></div>
+              <div class="feat">
+                <svg class="feat-ico"><use href="#i-layers"/></svg>
+                <div class="feat-text"><b>Слово за словом</b><span>Прогрессивный вызов</span></div>
+              </div>
+              <div class="feat">
+                <svg class="feat-ico"><use href="#i-bolt"/></svg>
+                <div class="feat-text"><b>Интервальные повторы</b><span>Запоминается надолго</span></div>
+              </div>
+            </div>
+            <h3 class="card-title">Мультисенсорно. Это правда закрепляется.</h3>
+            <div class="good-row">
+              <span class="tag-good"><svg><use href="#i-check"/></svg> Активное вспоминание</span>
+              <span class="tag-good"><svg><use href="#i-check"/></svg> Моторная память</span>
+              <span class="tag-good"><svg><use href="#i-check"/></svg> Произнесение вслух</span>
+            </div>
+          </div>
+        </section>
+
+        <div class="rating-pill mono">
+          <svg class="star"><use href="#i-gem"/></svg>
+          НЕЙРО-ЛИНГВИСТИЧЕСКИЙ МЕТОД · МУЛЬТИСЕНСОРНАЯ ПАМЯТЬ
+        </div>
+        <blockquote class="quote">«Запоминается то, что ты <i>делаешь</i> — а не то, что просто прочитал.»</blockquote>
+
+        <!-- start block -->
+        <section class="start-block">
+          <div class="key-field">
+            <label for="eleven-key" class="key-label mono">ELEVENLABS KEY · НЕОБЯЗАТЕЛЬНО — ГОЛОС УЖЕ ВСТРОЕН</label>
+            <input id="eleven-key" type="password" autocomplete="off" spellcheck="false"
+                   placeholder="sk_…  необязательно — голос уже подключён" />
+            <p class="key-hint">Премиум-голос ElevenLabs уже встроен и работает офлайн из кэша. Поле — для своего личного ключа (необязательно).</p>
+          </div>
+          <p class="overlay-foot">Открой через <code>http://localhost</code> и разреши камеру + микрофон. Рекомендуется Chrome.</p>
+        </section>
+
+      </div>
+    </div>
+
+    <!-- =========================================================
+         TRAINING VIEW
+         ========================================================= -->
+    <main id="trainer-view">
+      <div class="trainer-grid">
+
+        <!-- LEVEL BAR · spans grid -->
+        <div id="levelbar">
+          <span id="lang-badge" class="lb-badge">🇬🇧 EN</span>
+          <span id="level-cur" class="lb-level">A2</span>
+          <div class="level-track"><div id="level-fill"></div></div>
+          <span id="level-next" class="lb-next">B1</span>
+          <span id="level-info" class="lb-info">—</span>
+          <span class="lb-spacer"></span>
+          <span id="progress" class="lb-stat">0 / 10</span>
+          <span id="sessions-today" class="lb-stat lb-sessions" title="Занятий сегодня сделано / нужно">📅 0/0</span>
+          <span id="timer" class="lb-stat lb-mono">0:00</span>
+          <span id="streak" class="lb-stat lb-streak"><svg class="lb-ico"><use href="#i-flame"/></svg><span class="lb-streak-n">0</span></span>
+          <span id="mic" class="lb-mic" title="Звук">🔇</span>
+        </div>
+
+        <!-- LEFT · camera + gesture meter -->
+        <section class="panel cam-panel">
+          <div class="panel-head">
+            <span class="card-tag mono">[ LIVE · VISION ]</span>
+            <span id="cam-status" class="cam-status">Инициализация…</span>
+          </div>
+
+          <div id="cam-wrap">
+            <video id="video" autoplay muted playsinline></video>
+            <canvas id="overlay-canvas"></canvas>
+            <div class="cam-corners" aria-hidden="true">
+              <span class="corner tl"></span><span class="corner tr"></span>
+              <span class="corner bl"></span><span class="corner br"></span>
+            </div>
+            <div class="cam-scan" aria-hidden="true"></div>
+            <!-- Side glow shows which hand to use, right on the (mirrored) video. -->
+            <div id="cam-side-left" class="cam-side left" aria-hidden="true"></div>
+            <div id="cam-side-right" class="cam-side right" aria-hidden="true"></div>
+          </div>
+
+          <div id="gesture-hud">
+            <div class="gh-top">
+              <div id="expected-cue">Ожидаю жест…</div>
+              <div id="hand-detected">Рука не найдена</div>
+            </div>
+            <div class="meter-wrap">
+              <div id="gesture-meter"><div class="meter-fill"></div></div>
+              <div id="gesture-percent">0%</div>
+            </div>
+            <div id="gesture-name">—</div>
+          </div>
+
+          <!-- ENGLESY L/R lit indicator -->
+          <div id="hands">
+            <div id="handL" class="hand">
+              <span class="hand-emoji">👍</span>
+              <span class="hand-label">ЛЕВАЯ · чётное</span>
+            </div>
+            <div id="handR" class="hand">
+              <span class="hand-emoji">✊</span>
+              <span class="hand-label">ПРАВАЯ · нечётное</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- RIGHT · phrase + controls -->
+        <section class="panel phrase-side">
+          <div id="pattern">
+            <span class="tense-badge">present</span>
+            <span class="pattern-text">—</span>
+            <span class="new-badge" hidden>NEW</span>
+          </div>
+
+          <div id="phrase-panel">
+            <div id="phrase-words"></div>
+            <div id="phonetic"></div>
+            <div id="phrase-translation"></div>
+          </div>
+
+          <div id="bigword-wrap">
+            <div id="bigword">—</div>
+            <div id="bigword-phon"></div>
+          </div>
+
+          <div id="status-line">Готов к запуску</div>
+
+          <div class="legend">
+            <div class="legend-row">
+              <span class="legend-badge even">👍</span>
+              <span class="legend-text">Нечётное слово (1·3·5) · палец вверх <b>левой</b> рукой</span>
+            </div>
+            <div class="legend-row">
+              <span class="legend-badge odd">✊</span>
+              <span class="legend-text">Чётное слово (2·4·6) · кулак <b>правой</b> рукой</span>
+            </div>
+          </div>
+
+          <!-- repeat phase -->
+          <div id="repeat" hidden>
+            <div class="repeat-label">Повтори вслух <span id="repeat-target">10</span>×</div>
+            <div id="repeat-cue" class="repeat-cue">✊ Показывай кулак и говори фразу целиком</div>
+            <div id="repeat-phrase">—</div>
+            <div id="repeat-phon"></div>
+            <div id="repeat-dots"></div>
+          </div>
+
+          <div id="controls">
+            <button id="replay-btn" type="button"><svg class="ctl-ico"><use href="#i-replay"/></svg><span>Повтор · R</span></button>
+            <button id="skip-btn" type="button"><svg class="ctl-ico"><use href="#i-skip"/></svg><span>Пропустить · S</span></button>
+            <button id="strict-toggle" type="button" aria-pressed="true">Строгая рука · ON</button>
+            <button id="swap-btn" type="button"><svg class="ctl-ico"><use href="#i-swap"/></svg><span>Зеркало L/R</span></button>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- ===== DONE SCREEN ===== -->
+    <div id="done" hidden>
+      <div class="done-inner">
+        <svg class="done-gem"><use href="#i-gem"/></svg>
+        <div class="done-title">Сессия завершена</div>
+        <div class="done-sub">Отличная работа — фразы закреплены в памяти</div>
+        <div id="done-stats" class="done-stats"></div>
+        <div id="done-level" class="done-level"></div>
+        <div class="done-actions">
+          <button id="done-again" class="btn btn-primary" type="button">
+            <svg class="btn-ico"><use href="#i-replay"/></svg><span>ЕЩЁ СЕССИЯ</span>
+          </button>
+          <button id="done-home" class="btn btn-ghost" type="button">
+            <svg class="btn-ico"><use href="#i-arrow"/></svg><span>НА ГЛАВНУЮ</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== CELEBRATE ===== -->
+    <div id="celebrate" hidden>
+      <div class="celebrate-inner">
+        <svg class="celebrate-gem"><use href="#i-gem"/></svg>
+        <div class="celebrate-title">Отлично!</div>
+        <div class="celebrate-sub">Фраза собрана целиком</div>
+      </div>
+    </div>
+
+    <!-- ===== LEGACY HOVER TIP (optional) ===== -->
+    <div id="wordtip" hidden></div>
+
+    <!-- ===== ERROR TOAST ===== -->
+    <div id="error-toast" hidden></div>
+
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
