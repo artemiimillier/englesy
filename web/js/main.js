@@ -58,6 +58,8 @@ let booted = false;         // a trainer session is live
 let mirror = !!(CONFIG && CONFIG.mirror);
 let sessionStartMs = 0;     // for finishSessionStats timing
 let sessionDoneCount = 0;   // sentences completed (pass+skip) this session
+let cameraStream = null;    // live MediaStream — kept so we can RELEASE the camera
+let camWatchTimer = null;   // black/frozen-frame watchdog interval
 
 // ---- tiny safe-call helpers -------------------------------------------------
 function safe(fn) {
@@ -268,9 +270,14 @@ async function setupCameraAndGestures() {
     safe(() => ui.setCamStatus('Камера недоступна — играй на клавишах ←/→'));
     return;
   }
+  // Free any stream still held from a previous start in THIS page before asking
+  // again — restarting a session must never stack two live camera streams (the
+  // second would get a black/frozen frame from the device the first still owns).
+  stopCamera();
   try {
     safe(() => ui.setCamStatus('Запрашиваю камеру…'));
-    await startCamera(video);
+    const { stream } = await startCamera(video);
+    cameraStream = stream;   // keep the handle so leaving the trainer can release it
     safe(() => ui.setCamStatus('Загружаю модель жестов…'));
 
     gestures = await createGestureEngine({
@@ -281,6 +288,11 @@ async function setupCameraAndGestures() {
 
     safeQuiet(() => { if (gestures && gestures.setMirror) gestures.setMirror(mirror); });
     safe(() => gestures.start());
+
+    // getUserMedia can RESOLVE (so we reach "Модель готова") yet the device still
+    // delivers a black/frozen frame — when it's held by another app or a stale
+    // ENGLESY tab. Watch real frames and tell the user exactly what to do.
+    watchCameraFrames(video);
   } catch (e) {
     // No camera / no MediaPipe / permission denied → keyboard drill continues.
     gestures = null;
@@ -291,6 +303,64 @@ async function setupCameraAndGestures() {
     safe(() => ui.setCamStatus(`${name}${msg}`));
     console.warn('[ENGLESY] camera/gestures unavailable:', e && e.name, msg);
   }
+}
+
+// Release the live camera: stop every track (turns the camera light off) and
+// detach the stream so the OS frees the device and the NEXT start gets a clean
+// camera. Safe to call anytime, including when nothing is running.
+function stopCamera() {
+  if (camWatchTimer !== null) {
+    try { clearInterval(camWatchTimer); } catch (_) { /* ignore */ }
+    camWatchTimer = null;
+  }
+  const stream = cameraStream;
+  cameraStream = null;
+  if (stream && stream.getTracks) {
+    try {
+      stream.getTracks().forEach((t) => { try { t.stop(); } catch (_) { /* ignore */ } });
+    } catch (_) { /* ignore */ }
+  }
+  safeQuiet(() => {
+    const v = document.getElementById('video');
+    if (v) { try { v.srcObject = null; } catch (_) { /* ignore */ } }
+  });
+}
+
+// After the camera "starts", confirm it actually delivers MOVING frames. A black
+// or frozen feed (device owned by Zoom/Loom/Photo Booth or a stale ENGLESY tab)
+// leaves currentTime stuck — surface an actionable message instead of a silent
+// black box. Self-clears after ~20s; re-armed on every (re)start.
+function watchCameraFrames(video) {
+  if (camWatchTimer !== null) { try { clearInterval(camWatchTimer); } catch (_) { /* ignore */ } }
+  let last = -1;
+  let stalls = 0;
+  let checks = 0;
+  let warned = false;
+  camWatchTimer = setInterval(() => {
+    checks += 1;
+    // Don't blame the camera while the tab is hidden — frames legitimately pause.
+    if (typeof document !== 'undefined' && document.hidden) return;
+    const t = video ? video.currentTime : 0;
+    const advancing = !!(video && video.videoWidth > 0 && t !== last);
+    last = t;
+    stalls = advancing ? 0 : stalls + 1;
+    if (advancing && warned) {            // recovered on its own
+      warned = false;
+      safe(() => ui.setCamStatus('Модель готова.'));
+    }
+    if (!advancing && stalls >= 6 && !warned) {  // ~3s with no new frame
+      warned = true;
+      safe(() => ui.setCamStatus(
+        'Камера не отдаёт изображение — скорее всего занята другим приложением ' +
+        '(Zoom, Loom, Photo Booth) или старой вкладкой ENGLESY. Закрой их и ' +
+        'перезагрузи страницу (Cmd+R). Пока можно играть на клавишах ←/→.'
+      ));
+    }
+    if (checks >= 40) {                   // stop watching after ~20s
+      try { clearInterval(camWatchTimer); } catch (_) { /* ignore */ }
+      camWatchTimer = null;
+    }
+  }, 500);
 }
 
 function onGestureResult(r) {
@@ -396,10 +466,13 @@ function onSentenceComplete(id, grade) {
 // onAllComplete(): finalize session timing, persist, show the done screen.
 function onAllComplete() {
   booted = false;
-  // Stop hot subsystems so they don't keep firing on the done screen.
+  // Stop hot subsystems so they don't keep firing on the done screen, and RELEASE
+  // the camera — a tab left on the done screen must not keep the device held, or
+  // the next launch gets a black feed.
   safeQuiet(() => { if (gestures && gestures.stop) gestures.stop(); });
   safeQuiet(() => { if (speech && speech.stop) speech.stop(); });
   safeQuiet(() => { if (audio && audio.stop) audio.stop(); });
+  safeQuiet(stopCamera);
 
   const durationMs = Math.max(0, nowMs() - sessionStartMs);
   const count = sessionDoneCount;
@@ -501,6 +574,15 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
+// Release the camera deterministically when the page is closed, reloaded, or
+// navigated away — otherwise the stream lingers and the NEXT launch (a fresh tab
+// from the auto-launcher, or a reload) gets a black/contended camera. pagehide
+// fires in cases beforeunload misses (bfcache, mobile tab switch).
+window.addEventListener('pagehide', () => {
+  safeQuiet(() => { if (gestures && gestures.stop) gestures.stop(); });
+  safeQuiet(stopCamera);
+});
+
 // ===========================================================================
 // 7) Control handlers
 // ===========================================================================
@@ -550,9 +632,12 @@ function showTrainerView() {
 
 function backToLanding() {
   // Tear down a live session; keep progress (already persisted per sentence).
+  // Release the camera too — going back to the landing must free the device so a
+  // stale tab parked here can't block the next session's camera.
   safeQuiet(() => { if (gestures && gestures.stop) gestures.stop(); });
   safeQuiet(() => { if (speech && speech.stop) speech.stop(); });
   safeQuiet(() => { if (audio && audio.stop) audio.stop(); });
+  safeQuiet(stopCamera);
   booted = false;
   trainer = null;
 
